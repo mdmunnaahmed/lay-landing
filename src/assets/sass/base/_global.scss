@@ -1,0 +1,104 @@
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  color: var(--c-body);
+  line-height: var(--lh-body);
+}
+a {
+  text-decoration: none;
+  color: var(--c-body);
+}
+span,
+sub,
+sup,
+a {
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: var(--lh-body);
+  font-family: var(--ff-heading);
+  color: var(--c-heading);
+}
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a {
+  color: var(--c-heading);
+}
+h1 {
+  font-size: var(--fs-heading-one);
+}
+h2 {
+  font-size: var(--fs-heading-two);
+}
+h3 {
+  font-size: var(--fs-heading-three);
+}
+h4 {
+  font-size: var(--fs-heading-four);
+}
+h5 {
+  font-size: var(--fs-heading-five);
+}
+h6 {
+  font-size: var(--fs-heading-six);
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1470px;
+  }
+}
