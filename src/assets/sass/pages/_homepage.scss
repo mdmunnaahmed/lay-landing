@@ -86,7 +86,7 @@
   position: relative;
   z-index: 1;
   margin-bottom: 55px;
-  overflow: hidden;
+  // overflow: hidden;
   @include breakpoint(max-lg) {
     justify-content: center;
     padding-inline: 20px;
@@ -115,12 +115,18 @@
   &::before {
     position: absolute;
     content: "";
-    left: -500px;
-    right: -500px;
-    top: -200px;
+    left: -190px;
+    right: -153px;
+    top: -60px;
     bottom: 0;
     background-color: var(--bg-light);
     z-index: -3;
+    @include breakpoint(max-xxl) {
+      right: -130px;
+    }
+    @include breakpoint(max-xl) {
+      right: -100px;
+    }
   }
 }
 .product-card {
@@ -496,7 +502,6 @@
     margin-top: 70px;
     max-width: 445px;
     border-radius: 15px;
-    position: relative;
     background-image: linear-gradient(white, white), linear-gradient(180deg, #bd8f2f 0%, #f9f1b2 66%, #bd8f2f 100%);
     background-origin: border-box;
     background-clip: padding-box, border-box;

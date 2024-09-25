@@ -507,7 +507,6 @@ button {
   position: relative;
   z-index: 1;
   margin-bottom: 55px;
-  overflow: hidden;
 }
 @media (max-width: 991px) {
   .scroll-content-wrapper {
@@ -543,12 +542,22 @@ button {
 .product-wrapper::before {
   position: absolute;
   content: "";
-  left: -500px;
-  right: -500px;
-  top: -200px;
+  left: -190px;
+  right: -153px;
+  top: -60px;
   bottom: 0;
   background-color: var(--bg-light);
   z-index: -3;
+}
+@media (max-width: 1399px) {
+  .product-wrapper::before {
+    right: -130px;
+  }
+}
+@media (max-width: 1199px) {
+  .product-wrapper::before {
+    right: -100px;
+  }
 }
 
 .product-card {
@@ -965,7 +974,6 @@ button {
   margin-top: 70px;
   max-width: 445px;
   border-radius: 15px;
-  position: relative;
   background-image: linear-gradient(white, white), linear-gradient(180deg, #bd8f2f 0%, #f9f1b2 66%, #bd8f2f 100%);
   background-origin: border-box;
   background-clip: padding-box, border-box;
