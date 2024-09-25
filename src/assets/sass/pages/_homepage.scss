@@ -663,6 +663,9 @@
   .button {
     margin-top: 30px;
     border-bottom: 2px solid #116e35;
+    padding-inline: 5px;
+    display: block;
+    width: 100%;
   }
   .text-center {
     margin-inline: auto;
