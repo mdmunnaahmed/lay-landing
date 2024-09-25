@@ -100,23 +100,142 @@
             <div class="subtitle">Enter your contact information:</div>
             <form action="">
               <!-- if form-group has a class `required` the error will show -->
-              <div class="form-group email-group">
+              <div class="form-group email-group required">
+                <img src="assets/images/best-price.webp" alt="icon" class="best-price-logo" />
                 <div class="form-input">
                   <input class="form-control" type="text" required />
                   <label class="form-label" for="">Email</label>
                 </div>
                 <div class="error">This field is required.</div>
               </div>
-              <div class="form-group email-group">
+              <div class="form-group">
                 <div class="form-input">
                   <input class="form-control" type="text" required />
                   <label class="form-label" for="">First Name</label>
                 </div>
                 <div class="error">This field is required.</div>
               </div>
+              <div class="form-group">
+                <div class="form-input">
+                  <input class="form-control" type="text" required />
+                  <label class="form-label" for="">Last Name</label>
+                </div>
+                <div class="error">This field is required.</div>
+              </div>
+              <div class="form-group">
+                <div class="form-input">
+                  <input class="form-control" type="text" required />
+                  <label class="form-label" for="">Phone</label>
+                </div>
+                <div class="error">This field is required.</div>
+              </div>
+              <div class="form-group">
+                <div class="form-input">
+                  <input class="form-control" type="text" required />
+                  <label class="form-label" for="">Street Address</label>
+                </div>
+                <div class="error">This field is required.</div>
+              </div>
+              <div class="form-group">
+                <div class="form-input">
+                  <input class="form-control" type="text" required />
+                  <label class="form-label" for="">Apt / Suite / Other</label>
+                </div>
+                <div class="error">This field is required.</div>
+              </div>
+              <div class="form-group">
+                <div class="form-input">
+                  <input class="form-control" type="text" required />
+                  <label class="form-label" for="">City</label>
+                </div>
+                <div class="error">This field is required.</div>
+              </div>
+              <div class="form-group">
+                <div class="form-input">
+                  <select name="" id="" class="form-control">
+                    <option value="">---</option>
+                    <option value="Canada">Canada</option>
+                    <option value="USA">USA</option>
+                  </select>
+                  <label class="form-label" for="">Country</label>
+                </div>
+                <div class="error">This field is required.</div>
+              </div>
+              <div class="two-col">
+                <div class="form-group">
+                  <div class="form-input">
+                    <select name="" id="" class="form-control">
+                      <option value="">---</option>
+                    </select>
+                    <label class="form-label" for="">State / Province</label>
+                  </div>
+                  <div class="error">This field is required.</div>
+                </div>
+                <div class="form-group">
+                  <div class="form-input">
+                    <input class="form-control" type="text" required />
+                    <label class="form-label" for="">Zip / Postcode</label>
+                  </div>
+                  <div class="error">This field is required.</div>
+                </div>
+              </div>
             </form>
           </div>
-          <div class="shipping-payment"></div>
+          <div class="payment-form">
+            <div class="title">PAYMENT</div>
+            <a href="" class="paypal-button"><img src="assets/images/paypal.webp" alt="paypal" /></a>
+            <div class="or-pay-with"><span>OR PAY WITH CREDIT CARD</span></div>
+            <div class="card-info">Credit Card Information:</div>
+            <img src="assets/images/cards.png" alt="icons" class="cards" />
+            <form action="">
+              <div class="form-group">
+                <div class="form-input">
+                  <input class="form-control" type="text" required />
+                  <label class="form-label" for="">Credit Card #</label>
+                </div>
+                <div class="error">This field is required.</div>
+              </div>
+              <div class="form-group">
+                <div class="form-input">
+                  <input class="form-control" type="text" required />
+                  <label class="form-label" for="">CVV Code</label>
+                </div>
+                <div class="error">This field is required.</div>
+              </div>
+              <div class="expiration-wrapper">
+                <div class="text">Expiration</div>
+                <div class="two-col">
+                  <div class="form-group">
+                    <div class="form-input">
+                      <select name="" id="" class="form-control">
+                        <option value="">09 (Sep)</option>
+                        <option value="">10 (Sep)</option>
+                      </select>
+                      <label class="form-label" for=""></label>
+                    </div>
+                    <div class="error">This field is required.</div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-input">
+                      <select name="" id="" class="form-control">
+                        <option value="">2024</option>
+                        <option value="">2025</option>
+                      </select>
+                      <label class="form-label" for=""></label>
+                    </div>
+                    <div class="error">This field is required.</div>
+                  </div>
+                </div>
+              </div>
+              <button class="button">COMPLETE SECURE PURCHASE</button>
+              <div class="gurantee-checkout">
+                <span>GUARANTEED <span>SAFE</span> CHECKOUT</span>
+              </div>
+              <div class="text-center">
+                <img src="assets/images/img1.webp" alt="img" />
+              </div>
+            </form>
+          </div>
         </div>
         <div class="summery-area">
           <div class="title">ORDER SUMMARY</div>

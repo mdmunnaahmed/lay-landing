@@ -1,9 +1,37 @@
+.two-col {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+}
+.email-group {
+  position: relative;
+  .best-price-logo {
+    position: absolute;
+    top: -70px;
+    right: -20px;
+    z-index: 1;
+  }
+  .form-input {
+    border-width: 2px;
+    border-color: #4ACAFF !important;
+  }
+}
 .form-group {
   margin-bottom: 12px;
+  &.required {
+    .form-input {
+      border-color: var(--c-danger);
+      background-color: #f9ecea;
+    }
+    .error {
+      display: block;
+    }
+  }
   .error {
     color: var(--c-danger);
     font-size: 13px;
     display: none;
+    margin-top: 3px;
   }
 }
 .form-input {
@@ -20,6 +48,8 @@
     top: 50%;
     transform: translateY(-50%);
     transition: all 0.3s linear;
+    user-select: none;
+    pointer-events: none;
   }
 }
 .form-control {
@@ -36,3 +66,4 @@
     font-size: 0.8rem;
   }
 }
+

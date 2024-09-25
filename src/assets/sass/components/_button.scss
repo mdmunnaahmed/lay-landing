@@ -1,7 +1,20 @@
+button {
+  border: none;
+  cursor: pointer;
+}
 .button {
   font-size: 20px;
   padding: 12px 38px;
   font-weight: 700;
   background-color: #29af5c;
   border-radius: 5px;
+}
+
+.paypal-button {
+  display: block;
+  background-color: #FFC438;
+  text-align: center;
+  border-bottom: 3px solid #BB8400;
+  border-radius: 5px;
+  padding: 2px 10px;
 }
