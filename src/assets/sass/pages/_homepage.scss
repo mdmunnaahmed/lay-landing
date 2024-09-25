@@ -86,10 +86,10 @@
   position: relative;
   z-index: 1;
   margin-bottom: 55px;
-  // overflow: hidden;
   @include breakpoint(max-lg) {
     justify-content: center;
     padding-inline: 20px;
+    overflow: hidden;
   }
 }
 .right-content {

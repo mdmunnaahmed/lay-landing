@@ -511,6 +511,7 @@ button {
   .scroll-content-wrapper {
     justify-content: center;
     padding-inline: 20px;
+    overflow: hidden;
   }
 }
 
