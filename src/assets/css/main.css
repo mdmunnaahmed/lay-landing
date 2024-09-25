@@ -247,6 +247,11 @@ button {
 .feature-section {
   padding-bottom: 60px;
 }
+@media (max-width: 991px) {
+  .feature-section {
+    padding-inline: 20px;
+  }
+}
 
 .feature-wrapper {
   max-width: 900px;
