@@ -858,7 +858,7 @@ button {
 }
 .scroll-tabs .line {
   width: 5px;
-  height: 100%;
+  height: 88%;
   background-color: var(--c-primary);
   margin-inline: auto;
   z-index: -2;
