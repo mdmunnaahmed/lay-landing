@@ -70,6 +70,8 @@
   gap: 10px;
   position: relative;
   z-index: 1;
+  margin-bottom: 55px;
+  overflow: hidden;
 }
 .product-wrapper {
   display: grid;
@@ -78,12 +80,14 @@
   margin-top: 55px;
   max-width: 85%;
   margin-left: 65px;
+  position: relative;
+  padding-bottom: 70px;
   &::before {
     position: absolute;
     content: "";
-    left: 0;
-    right: 0;
-    top: 0;
+    left: -500px;
+    right: -500px;
+    top: -200px;
     bottom: 0;
     background-color: var(--bg-light);
     z-index: -1;
@@ -98,6 +102,9 @@
   position: relative;
   background-color: var(--c-white);
   z-index: 1;
+  @include breakpoint(max-xl) {
+    padding: 30px 15px;
+  }
   &.best-deal-card {
     margin-top: -55px;
     position: relative;
@@ -146,6 +153,10 @@
     justify-content: center;
     gap: 5px;
     margin-bottom: 36px;
+    line-height: 1.1;
+    img {
+      max-width: 100px;
+    }
     b {
       font-weight: 700;
       color: white;
@@ -157,6 +168,9 @@
     font-size: 26px;
     line-height: 1;
     font-weight: 700;
+    @include breakpoint(max-xl) {
+      font-size: 20px;
+    }
   }
   .package-discount {
     line-height: 1.2;
@@ -176,15 +190,22 @@
     font-weight: 700;
     font-size: 33px;
     color: var(--c-primary);
+    @include breakpoint(max-xl) {
+      font-size: 28px;
+    }
   }
   .package-details {
     text-align: left;
     font-size: 20px;
     font-weight: 600;
+    @include breakpoint(max-xl) {
+      font-size: 16px;
+    }
     li {
       display: flex;
-      align-items: center;
+      align-items: start;
       gap: 8px;
+      padding-block: 3px;
       img {
         width: 24px;
       }
@@ -194,6 +215,10 @@
     display: block;
     margin-top: 36px;
     padding-inline: 5px;
+    @include breakpoint(max-xl) {
+      margin-top: 20px;
+      font-size: 18px;
+    }
   }
   .selling-out-area {
     background-color: #fff2e0;
@@ -236,6 +261,7 @@
     .subtitle {
       font-size: 18px;
       font-weight: 500;
+      margin-bottom: 45px;
     }
   }
 
@@ -251,6 +277,8 @@
     background-clip: padding-box, border-box;
     border: 3px solid transparent;
     padding: 20px 15px;
+    height: 100%;
+    box-shadow: 4px 5px 9px 0 rgba(0, 0, 0, 0.31);
     .title {
       font-size: 20px;
       font-weight: 700;
@@ -309,5 +337,81 @@
         max-width: 111px;
       }
     }
+  }
+}
+.payment-form {
+  margin-top: 65px;
+  .title {
+    margin-bottom: 30px;
+    line-height: 1;
+  }
+  .or-pay-with {
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 32px;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+    span {
+      background-color: var(--c-white);
+      padding-inline: 6px;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      right: 0;
+      height: 1px;
+      top: 49%;
+      border-top: 1px solid #ddd;
+      z-index: -1;
+    }
+  }
+  .gurantee-checkout {
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 32px;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+    span {
+      background-color: var(--c-white);
+      padding-inline: 6px;
+      span {
+        color: #3999de;
+      }
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      right: 0;
+      height: 1px;
+      top: 49%;
+      border-top: 1px solid #3999de;
+      z-index: -1;
+    }
+  }
+  .cards {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .expiration-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    .two-col {
+      flex-grow: 1;
+    }
+  }
+  .button {
+    margin-top: 30px;
+    border-bottom: 2px solid #116e35;
+  }
+  .text-center {
+    margin-inline: auto;
+    text-align: center;
   }
 }
