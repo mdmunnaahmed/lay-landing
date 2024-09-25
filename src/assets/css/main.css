@@ -969,6 +969,12 @@ button {
   font-size: 31px;
   font-weight: 700;
 }
+@media (max-width: 991px) {
+  .form-area .left-form .title {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+}
 .form-area .left-form .subtitle {
   font-size: 18px;
   font-weight: 500;
@@ -1075,6 +1081,11 @@ button {
 .payment-form .title {
   margin-bottom: 30px;
   line-height: 1;
+}
+@media (max-width: 991px) {
+  .payment-form .title {
+    margin-bottom: 20px;
+  }
 }
 .payment-form .or-pay-with {
   text-align: center;

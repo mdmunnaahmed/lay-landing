@@ -489,6 +489,10 @@
     .title {
       font-size: 31px;
       font-weight: 700;
+      @include breakpoint(max-lg) {
+        font-size: 20px;
+        letter-spacing: .5px;
+      }
     }
     .subtitle {
       font-size: 18px;
@@ -591,6 +595,9 @@
   .title {
     margin-bottom: 30px;
     line-height: 1;
+    @include breakpoint(max-lg) {
+      margin-bottom: 20px;
+    }
   }
   .or-pay-with {
     text-align: center;
