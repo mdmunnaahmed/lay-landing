@@ -10,6 +10,10 @@
     top: -70px;
     right: -20px;
     z-index: 1;
+    @include breakpoint(max-lg) {
+      max-width: 168px;
+      top: -52px;
+    }
   }
   .form-input {
     border-width: 2px;

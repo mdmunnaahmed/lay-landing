@@ -8,6 +8,10 @@ button {
   font-weight: 700;
   background-color: #29af5c;
   border-radius: 5px;
+  @include breakpoint(max-lg) {
+    padding-block: 8px;
+    font-size: 18px;
+  }
 }
 
 .paypal-button {
