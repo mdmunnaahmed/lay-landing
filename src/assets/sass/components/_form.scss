@@ -17,7 +17,7 @@
   }
   .form-input {
     border-width: 2px;
-    border-color: #4ACAFF !important;
+    border-color: #4acaff !important;
   }
 }
 .form-group {
@@ -55,6 +55,18 @@
     user-select: none;
     pointer-events: none;
   }
+  img {
+    max-width: 14px;
+    max-height: 14px;
+    object-fit: contain;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .question-mark {
+    cursor: pointer;
+  }
 }
 .form-control {
   width: 100%;
@@ -71,3 +83,51 @@
   }
 }
 
+.question-mark-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 10, 10, 0.45);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s linear;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  .modal-inner {
+    padding: 40px 15px 15px;
+    max-width: 380px;
+    margin: auto;
+    background-color: white;
+    position: relative;
+    .card {
+      transform: translate(0);
+      position: static !important;
+      width: auto !important;
+      height: auto !important;
+      max-width: fit-content !important;
+      max-height: fit-content !important;
+    }
+    .title {
+      text-align: center;
+      font-size: 18px !important;
+      font-weight: normal !important;
+      margin-bottom: 15px !important;
+    }
+    .close-modal {
+      width: 15px !important;
+      margin-left: auto;
+      position: absolute !important;
+      right: 15px;
+      top: 20px;
+      pointer-events: none;
+    }
+  }
+}
