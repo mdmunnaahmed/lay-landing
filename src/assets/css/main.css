@@ -391,6 +391,27 @@ h6 {
   display: inline-block;
 }
 
+.modal {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: #ffe300;
+  border: 5px solid #e43b2c;
+  border-radius: 5px;
+  text-align: center;
+}
+.modal-content .button:hover {
+  background-color: #099513;
+}
+
 .heading-bar {
   font-size: 18px;
   padding: 8px 0;
