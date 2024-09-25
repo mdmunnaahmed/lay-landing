@@ -21,6 +21,12 @@
     }
   }
 }
+.hero-bottom-text {
+  font-size: 12px;
+  padding: 6px 0;
+  text-align: center;
+  color: #404040;
+}
 
 #secure-checkout {
   background-color: var(--bg-light);
@@ -64,7 +70,16 @@
   font-weight: 700;
   background-color: var(--bg-light);
 }
-
+.mobile-hidden {
+  @include breakpoint(max-lg) {
+    display: none !important;
+  }
+}
+.desktop-hidden {
+  @include breakpoint(lg) {
+    display: none !important;
+  }
+}
 .scroll-content-wrapper {
   display: flex;
   gap: 10px;
@@ -72,6 +87,16 @@
   z-index: 1;
   margin-bottom: 55px;
   overflow: hidden;
+  @include breakpoint(max-lg) {
+    justify-content: center;
+    padding-inline: 20px;
+  }
+}
+.right-content {
+  @include breakpoint(max-lg) {
+    flex-grow: 1;
+    flex-basis: 100%;
+  }
 }
 .product-wrapper {
   display: grid;
@@ -79,9 +104,14 @@
   grid-template-columns: repeat(4, 1fr);
   margin-top: 55px;
   max-width: 85%;
-  margin-left: 65px;
+  margin-left: 35px;
   position: relative;
   padding-bottom: 70px;
+  @include breakpoint(max-lg) {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 0;
+  }
   &::before {
     position: absolute;
     content: "";
@@ -90,7 +120,7 @@
     top: -200px;
     bottom: 0;
     background-color: var(--bg-light);
-    z-index: -1;
+    z-index: -3;
   }
 }
 .product-card {
@@ -112,6 +142,9 @@
     background-origin: border-box;
     background-clip: padding-box, border-box;
     border: 6px solid transparent;
+    @include breakpoint(max-lg) {
+      margin-top: 0;
+    }
   }
   &.active {
     background-color: #fffef4;
@@ -154,6 +187,16 @@
     gap: 5px;
     margin-bottom: 36px;
     line-height: 1.1;
+    @include breakpoint(max-xl) {
+      margin-top: -30px;
+      margin-left: -16px;
+      margin-right: -16px;
+    }
+    @include breakpoint(max-lg) {
+      // margin-top: 0px;
+      // margin-left: 0px;
+      // margin-right: 0;
+    }
     img {
       max-width: 100px;
     }
@@ -162,6 +205,9 @@
       color: white;
       font-size: 17px;
       margin-bottom: -3px;
+      @include breakpoint(max-xl) {
+        font-size: 15px;
+      }
     }
   }
   .package-name {
@@ -169,7 +215,7 @@
     line-height: 1;
     font-weight: 700;
     @include breakpoint(max-xl) {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
   .package-discount {
@@ -228,10 +274,22 @@
     margin-top: 35px;
     padding: 15px 36px;
     border-radius: 0 0 5px 5px;
+    @include breakpoint(max-xl) {
+      margin-bottom: -24px;
+      margin-left: -8px;
+      margin-right: -8px;
+      padding: 10px;
+    }
+    @include breakpoint(max-lg) {
+      padding: 15px;
+    }
     .selling-out {
       font-size: 18px;
       font-weight: 700;
       color: #ed5214;
+      @include breakpoint(max-xl) {
+        font-size: 16px;
+      }
       img {
         width: auto 40px;
       }
@@ -239,6 +297,167 @@
     .text {
       font-style: italic;
       font-weight: 600;
+      @include breakpoint(max-xl) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+.scroll-tabs-two {
+  position: sticky;
+  background-color: #eeeeee;
+  padding: 15px 10px;
+  .line {
+    left: 51%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 3px;
+    background-color: var(--c-primary);
+    position: absolute;
+    top: 48px;
+    z-index: -1;
+    @include breakpoint(max-sm) {
+      top: 31px;
+    }
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+    li {
+      width: 15%;
+      text-align: center;
+      background-color: #eeeeee;
+      a {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+      &.active {
+        .number {
+          display: none;
+        }
+        .icon {
+          background-color: var(--c-primary);
+        }
+        img {
+          display: block;
+        }
+      }
+      .icon {
+        width: 66px;
+        height: 66px;
+        background-color: #d8d8d8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        @include breakpoint(max-sm) {
+          width: 34px;
+          height: 34px;
+        }
+      }
+      img {
+        display: none;
+        @include breakpoint(max-sm) {
+          max-width: 15px;
+        }
+      }
+      .number {
+        // display: none;
+        font-size: 24px;
+        font-weight: 700;
+        color: white;
+        @include breakpoint(max-sm) {
+          font-size: 14px;
+        }
+      }
+      b {
+        line-height: 1.2;
+        @include breakpoint(max-sm) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+.scroll-tabs {
+  margin-left: 35px;
+  margin-top: 100px;
+  @include breakpoint(max-xl) {
+    margin-left: 20px;
+  }
+  .line {
+    width: 5px;
+    height: 100%;
+    background-color: var(--c-primary);
+    margin-inline: auto;
+    z-index: -2;
+    position: relative;
+  }
+  ul {
+    li {
+      padding-block: 15px;
+      a {
+        text-align: center;
+        font-size: 24px;
+        line-height: 1.1;
+        display: block;
+        @include breakpoint(max-xl) {
+          font-size: 20px;
+        }
+        img {
+          background-color: var(--c-primary);
+          width: 66px;
+          height: 65px;
+          border-radius: 50%;
+          padding: 15px;
+          margin-bottom: 5px;
+          object-fit: contain;
+        }
+        b {
+          display: block;
+        }
+      }
+    }
+  }
+  .shipping-info {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    top: 960px;
+    left: -10px;
+    background-color: white;
+    @include breakpoint(max-xl) {
+      left: -35px;
+      top: 870px;
+      z-index: -1;
+    }
+  }
+  .payment {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    top: 1700px;
+    left: -10px;
+    background-color: white;
+    @include breakpoint(max-xl) {
+      left: -35px;
+      top: 1625px;
+      z-index: -1;
+    }
+  }
+  .order {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    top: 2175px;
+    left: -10px;
+    background-color: white;
+    @include breakpoint(max-xl) {
+      left: -35px;
+      top: 2095px;
+      z-index: -1;
     }
   }
 }
@@ -248,12 +467,18 @@
   justify-content: space-evenly;
   gap: 24px;
   margin-top: 30px;
+  @include breakpoint(max-lg) {
+    width: 100%;
+  }
   > * {
     flex-grow: 1;
   }
 
   .left-form {
     max-width: 412px;
+    @include breakpoint(max-lg) {
+      max-width: 100%;
+    }
     .title {
       font-size: 31px;
       font-weight: 700;
@@ -279,6 +504,11 @@
     padding: 20px 15px;
     height: 100%;
     box-shadow: 4px 5px 9px 0 rgba(0, 0, 0, 0.31);
+    @include breakpoint(max-lg) {
+      height: auto;
+      max-width: 100%;
+      width: 100%;
+    }
     .title {
       font-size: 20px;
       font-weight: 700;

@@ -28,10 +28,42 @@
   </div>
   <!-- banner section end -->
 
+  <div class="desktop-hidden hero-bottom-text">Portable Zapper Kills Mosquitoes Fast</div>
+
+  <div class="scroll-tabs-two desktop-hidden">
+    <ul>
+      <li class="active">
+        <a href=""
+          ><div class="icon"><img src="assets/images/check3.png" alt="icon" /> <span class="number">1</span></div>
+          <b>Select Quantity</b></a
+        >
+      </li>
+      <li class="shipping-info">
+        <a href="#shipping-info"
+          ><div class="icon"><img src="assets/images/check3.png" alt="icon" /> <span class="number">2</span></div>
+          <b>Shipping Information</b></a
+        >
+      </li>
+      <li class="payment">
+        <a href="#payment-form"
+          ><div class="icon"><img src="assets/images/check3.png" alt="icon" /> <span class="number">3</span></div>
+          <b>Payment</b></a
+        >
+      </li>
+      <li class="order">
+        <a href="#order"
+          ><div class="icon"><img src="assets/images/check3.png" alt="icon" /> <span class="number">4</span></div>
+          <b>Place Order</b></a
+        >
+      </li>
+    </ul>
+    <div class="line"></div>
+  </div>
+
   <!-- scroll tab section start-->
 
   <!-- secure checkout start -->
-  <div id="secure-checkout">
+  <div id="secure-checkout" class="mobile-hidden">
     <div class="secure-checkout-wrapper">
       <p class="text"><img src="assets/images/secure-checkout.png" alt="img" /> Secure Checkout</p>
       <img src="assets/images/img1.webp" alt="img" />
@@ -42,10 +74,22 @@
   <div class="offer-title">Your 62% OFF plus additional 10% Off is Applied!</div>
 
   <div class="scroll-content-wrapper">
-    <div class="scroll-tabs">
+    <div class="scroll-tabs mobile-hidden">
       <ul>
-        <li><a href="">Select Quantity</a></li>
+        <li>
+          <a href=""><img src="assets/images/check3.png" alt="icon" /> <b>Select Quantity</b></a>
+        </li>
+        <li class="shipping-info">
+          <a href="#shipping-info"><img src="assets/images/check3.png" alt="icon" /> <b>Shipping Information</b></a>
+        </li>
+        <li class="payment">
+          <a href="#payment-form"><img src="assets/images/check3.png" alt="icon" /> <b>Payment</b></a>
+        </li>
+        <li class="order">
+          <a href="#order"><img src="assets/images/check3.png" alt="icon" /> <b>Place Order</b></a>
+        </li>
       </ul>
+      <div class="line"></div>
     </div>
     <div class="right-content">
       <div class="product-wrapper">
@@ -110,7 +154,7 @@
       </div>
       <div class="form-area">
         <div class="left-form">
-          <div class="shipping-form">
+          <div class="shipping-form" id="shipping-info">
             <div class="title">SHIPPING</div>
             <div class="subtitle">Enter your contact information:</div>
             <form action="">
@@ -196,7 +240,47 @@
               </div>
             </form>
           </div>
-          <div class="payment-form">
+          <div class="summery-area desktop-hidden">
+            <div class="title">ORDER SUMMARY</div>
+            <div class="product-item">
+              <div class="left">
+                <img src="assets/images/p1.webp" alt="img" />
+                <div>
+                  <div class="title">1X ZAPPIFY 2.0 +10% OFF</div>
+                  <a href="" class="edit">EDIT</a>
+                </div>
+              </div>
+              <div class="right">
+                <div class="qty"><b>QTY: 1</b></div>
+                <div class="price"><b>$39.99</b></div>
+              </div>
+            </div>
+            <ul class="summery">
+              <li>
+                <div class="first-val">Original Price:</div>
+                <div class="second-val"><b>$88.87</b></div>
+              </li>
+              <li>
+                <div class="first-val">Discount:</div>
+                <div class="second-val discount"><b>-$48.88</b></div>
+              </li>
+              <li>
+                <div class="first-val"><b>Total:</b></div>
+                <div class="second-val"><b>$39.99</b></div>
+              </li>
+              <li>
+                <div class="info">Shipping and sales tax settled on checkout</div>
+              </li>
+            </ul>
+            <div class="gurantee-wrapper">
+              <img src="assets/images/guarantee.webp" alt="icon" />
+              <div>
+                <b>30 DAY GUARANTEE: ZAPPIFY 2.0</b>
+                offers a 30-day guarantee on all unused purchases. Simply send the item(s) back to us in the original unopened packaging for a full refund or replacement, less S&H.
+              </div>
+            </div>
+          </div>
+          <div class="payment-form" id="payment-form">
             <div class="title">PAYMENT</div>
             <a href="" class="paypal-button"><img src="assets/images/paypal.webp" alt="paypal" /></a>
             <div class="or-pay-with"><span>OR PAY WITH CREDIT CARD</span></div>
@@ -217,7 +301,7 @@
                 </div>
                 <div class="error">This field is required.</div>
               </div>
-              <div class="expiration-wrapper">
+              <div class="expiration-wrapper" id="order">
                 <div class="text">Expiration</div>
                 <div class="two-col">
                   <div class="form-group">
@@ -252,7 +336,7 @@
             </form>
           </div>
         </div>
-        <div class="summery-area">
+        <div class="summery-area mobile-hidden">
           <div class="title">ORDER SUMMARY</div>
           <div class="product-item">
             <div class="left">
