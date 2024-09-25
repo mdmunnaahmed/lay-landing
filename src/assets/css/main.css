@@ -417,8 +417,27 @@ button {
   display: inline-block;
 }
 
+.modal-container {
+  position: relative;
+  display: none;
+}
+.modal-container::before {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+.modal-container.active.active {
+  display: block;
+}
+
 .modal {
-  max-width: 880px;
+  width: 880px !important;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   position: fixed;
@@ -427,15 +446,138 @@ button {
   transform: translate(-50%, -50%);
   z-index: 9999;
 }
+@media (max-width: 991px) {
+  .modal {
+    padding: 15px;
+  }
+}
 
-.modal-content {
+.close-button {
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  background-color: #000;
+  border-radius: 50px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #fff;
+  cursor: pointer;
+}
+@media (max-width: 991px) {
+  .close-button {
+    right: 7px;
+    top: 7px;
+  }
+}
+
+.modal-wrapper {
+  width: 100%;
   background-color: #ffe300;
   border: 5px solid #e43b2c;
   border-radius: 5px;
   text-align: center;
+  padding: 40px 35px;
+}
+@media (max-width: 991px) {
+  .modal-wrapper {
+    padding: 20px 10px;
+    padding-top: 30px;
+  }
+}
+
+.modal-content {
+  max-width: 770px;
+  margin-inline: auto;
+}
+.modal-content .discount-text {
+  font-size: 26px;
+  color: #00e;
+  font-weight: 700;
+  max-width: 700px;
+  margin-inline: auto;
+  line-height: 1.23;
+}
+.modal-content .discount-text span {
+  font-size: 33px;
+  font-weight: 800;
+}
+@media (max-width: 575px) {
+  .modal-content .discount-text {
+    font-size: 22px;
+    line-height: 1.7;
+  }
+  .modal-content .discount-text span {
+    font-size: 22px;
+  }
+}
+.modal-content h2 {
+  margin: 0;
+  font-size: 43px;
+  margin-bottom: 10px;
+  color: #2f2f2f;
+  font-weight: 800;
+}
+.modal-content p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #2f2f2f;
+  line-height: 1.45;
+}
+.modal-content .time-tracker .time {
+  font-weight: 700;
+  font-size: 32px;
+  color: #000;
+  line-height: 1;
+}
+.modal-content .time-tracker span {
+  font-size: 13px;
+  color: #000;
+  display: inline-block;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.modal-content .button {
+  background-color: #0bba18;
+  border: 1px solid #099513;
+  transition: all ease 0.2s;
+  font-size: 24px;
+  padding: 9px 26px;
+}
+@media (max-width: 991px) {
+  .modal-content .button {
+    min-width: auto !important;
+    padding: 12px 26px !important;
+    max-width: 100%;
+    font-size: 18px;
+  }
 }
 .modal-content .button:hover {
   background-color: #099513;
+}
+
+.modal.modal-two .modal-content {
+  max-width: 720px;
+}
+.modal.modal-two .button {
+  min-width: 420px;
+}
+.modal.modal-two .soldout-text {
+  color: #2f2f2f;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+@media (max-width: 575px) {
+  .modal.modal-two .soldout-text {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+}
+.modal.modal-two .soldout-text span {
+  font-weight: bold;
 }
 
 .heading-bar {
