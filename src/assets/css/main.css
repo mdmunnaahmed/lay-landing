@@ -246,7 +246,6 @@ button {
 
 .feature-section {
   padding-bottom: 60px;
-  padding-top: 40px;
 }
 
 .feature-wrapper {
@@ -537,6 +536,7 @@ button {
     grid-template-columns: 1fr;
     max-width: 100%;
     margin: 0;
+    padding-bottom: 50px;
   }
 }
 .product-wrapper::before {
