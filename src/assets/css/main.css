@@ -467,11 +467,7 @@ button {
   overflow: hidden;
   height: 0;
   transition: height 0.3s ease;
-}
-@media (min-width: 1200px) {
-  .faq-content {
-    padding-right: 30px;
-  }
+  padding-right: 30px;
 }
 .faq-content p {
   font-size: 17px;
