@@ -541,12 +541,12 @@
     position: absolute;
     width: 200px;
     text-align: center;
-    top: 900px;
+    top: 885px;
     left: -10px;
     background-color: white;
     @include breakpoint(max-xl) {
       left: -35px;
-      top: 780px;
+      top: 830px;
       z-index: -1;
     }
   }
@@ -554,12 +554,12 @@
     position: absolute;
     width: 200px;
     text-align: center;
-    top: 1635px;
+    top: 1600px;
     left: -10px;
     background-color: white;
     @include breakpoint(max-xl) {
       left: -35px;
-      top: 1515px;
+      top: 1545px;
       z-index: -1;
     }
   }
@@ -567,12 +567,12 @@
     position: absolute;
     width: 200px;
     text-align: center;
-    top: 2150px;
+    top: 2100px;
     left: -10px;
     background-color: white;
     @include breakpoint(max-xl) {
       left: -35px;
-      top: 2025px;
+      top: 2055px;
       z-index: -1;
     }
   }
