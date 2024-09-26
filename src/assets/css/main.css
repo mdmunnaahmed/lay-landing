@@ -833,7 +833,7 @@ button {
   position: absolute;
   content: "";
   left: -190px;
-  right: -153px;
+  right: -34px;
   top: -60px;
   bottom: 0;
   background-color: var(--bg-light);
@@ -841,7 +841,7 @@ button {
 }
 @media (max-width: 1399px) {
   .product-wrapper::before {
-    right: -130px;
+    right: -24px;
   }
 }
 @media (max-width: 1199px) {
@@ -1118,13 +1118,8 @@ button {
 .product-card .selling-out-area .text {
   font-style: italic;
   font-weight: 600;
+  line-height: 1.15;
 }
-@media (max-width: 991px) {
-  .product-card .selling-out-area .text {
-    line-height: 1.1;
-  }
-}
-
 .scroll-tabs-two {
   position: sticky;
   top: 0;
