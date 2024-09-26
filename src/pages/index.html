@@ -57,7 +57,7 @@
   </div>
   <!-- secure checkout end -->
 
-  <div class="offer-title">Your 50% OFF plus additional 10% Off is Applied!</div>
+  <div class="offer-title">Your <span class="percent-off">50</span>% OFF plus additional 10% Off is Applied!</div>
 
   <div class="scroll-content-wrapper">
     <div class="scroll-tabs mobile-hidden">
@@ -78,7 +78,7 @@
       <div class="line"></div>
     </div>
     <div class="right-content">
-      <div class="product-wrapper">
+      <div class="product-wrapper" id="package-wrapper">
         <div class="product-card active">
           <div class="package-name">1X ZAPPIFY 2.0</div>
           <div class="package-discount">+10% OFF</div>
@@ -89,7 +89,7 @@
             <li><img src="assets/images/check2.webp" alt="icon" /> 50% Savings!</li>
             <li><img src="assets/images/check2.webp" alt="icon" /> Personal Zapping Pack</li>
           </ul>
-          <a href="" class="button">ORDER NOW</a>
+          <a href="#0" class="button">ORDER NOW</a>
           <div class="selling-out-area">
             <div class="selling-out"><img src="assets/images/flame.webp" alt="flame" /> SELLING OUT</div>
             <div class="text">Try One today! Buy more later, lowest price guaranteed!</div>
@@ -110,7 +110,7 @@
               <li><img src="assets/images/check2.webp" alt="icon" /> 62% Savings!</li>
               <li><img src="assets/images/check2.webp" alt="icon" /> Triple Threat Pack</li>
             </ul>
-            <a href="" class="button">ORDER NOW</a>
+            <a href="#0" class="button">ORDER NOW</a>
           </div>
         </div>
         <div class="product-card">
@@ -123,7 +123,7 @@
             <li><img src="assets/images/check2.webp" alt="icon" /> 50% Savings!</li>
             <li><img src="assets/images/check2.webp" alt="icon" /> Killer Combo Pack</li>
           </ul>
-          <a href="" class="button">ORDER NOW</a>
+          <a href="#0" class="button">ORDER NOW</a>
         </div>
         <div class="product-card">
           <div class="package-name">4X ZAPPIFY 2.0</div>
@@ -135,7 +135,7 @@
             <li><img src="assets/images/check2.webp" alt="icon" /> 62% Savings!</li>
             <li><img src="assets/images/check2.webp" alt="icon" /> No Fly Zone Pack</li>
           </ul>
-          <a href="" class="button">ORDER NOW</a>
+          <a href="#0" class="button">ORDER NOW</a>
         </div>
       </div>
       <div class="form-area">
@@ -145,7 +145,7 @@
             <div class="subtitle">Enter your contact information:</div>
             <form action="">
               <!-- if form-group has a class `required` the error will show -->
-              <div class="form-group email-group required">
+              <div class="form-group email-group">
                 <img src="assets/images/best-price.webp" alt="icon" class="best-price-logo" />
                 <div class="form-input">
                   <input class="form-control" type="text" required />
@@ -230,32 +230,32 @@
             <div class="title">ORDER SUMMARY</div>
             <div class="product-item">
               <div class="left">
-                <img src="assets/images/p1.webp" alt="img" />
+                <img src="assets/images/p1.webp" alt="img" class="product-print-img" />
                 <div>
-                  <div class="title">
+                  <div class="title product-print-title">
                     1X ZAPPIFY 2.0 <br />
                     +10% OFF
                   </div>
-                  <a href="" class="edit">EDIT</a>
+                  <a href="#package-wrapper" class="edit">EDIT</a>
                 </div>
               </div>
               <div class="right">
-                <div class="qty"><b>QTY: 1</b></div>
-                <div class="price"><b>$39.99</b></div>
+                <div class="qty"><b class="product-print-qty">QTY: 1</b></div>
+                <div class="price"><b class="product-print-price">$39.99</b></div>
               </div>
             </div>
             <ul class="summery">
               <li>
                 <div class="first-val">Original Price:</div>
-                <div class="second-val"><b>$88.87</b></div>
+                <div class="second-val"><b class="product-print-original-price">$88.87</b></div>
               </li>
               <li>
                 <div class="first-val">Discount:</div>
-                <div class="second-val discount"><b>-$48.88</b></div>
+                <div class="second-val discount"><b class="product-print-discount-price">-$48.88</b></div>
               </li>
               <li>
                 <div class="first-val"><b>Total:</b></div>
-                <div class="second-val"><b>$39.99</b></div>
+                <div class="second-val"><b class="product-print-total-price">$39.99</b></div>
               </li>
               <li>
                 <div class="info">Shipping and sales tax settled on checkout</div>
@@ -309,8 +309,18 @@
                   <div class="form-group">
                     <div class="form-input">
                       <select name="" id="" class="form-control">
+                        <option value="">01 (Jan)</option>
+                        <option value="">02 (Feb)</option>
+                        <option value="">03 (Mar)</option>
+                        <option value="">04 (Apr)</option>
+                        <option value="">05 (May)</option>
+                        <option value="">06 (Jun)</option>
+                        <option value="">07 (Jul)</option>
+                        <option value="">08 (Aug)</option>
                         <option value="">09 (Sep)</option>
-                        <option value="">10 (Sep)</option>
+                        <option value="">10 (Oct)</option>
+                        <option value="">11 (Nov)</option>
+                        <option value="">12 (Dec)</option>
                       </select>
                       <label class="form-label" for=""></label>
                     </div>
@@ -321,6 +331,24 @@
                       <select name="" id="" class="form-control">
                         <option value="">2024</option>
                         <option value="">2025</option>
+                        <option value="">2026</option>
+                        <option value="">2027</option>
+                        <option value="">2028</option>
+                        <option value="">2029</option>
+                        <option value="">2030</option>
+                        <option value="">2031</option>
+                        <option value="">2032</option>
+                        <option value="">2033</option>
+                        <option value="">2034</option>
+                        <option value="">2035</option>
+                        <option value="">2036</option>
+                        <option value="">2037</option>
+                        <option value="">2038</option>
+                        <option value="">2039</option>
+                        <option value="">2040</option>
+                        <option value="">2041</option>
+                        <option value="">2042</option>
+                        <option value="">2043</option>
                       </select>
                       <label class="form-label" for=""></label>
                     </div>
@@ -342,32 +370,32 @@
           <div class="title">ORDER SUMMARY</div>
           <div class="product-item">
             <div class="left">
-              <img src="assets/images/p1.webp" alt="img" />
+              <img src="assets/images/p1.webp" alt="img" class="product-print-img" />
               <div>
-                <div class="title">
+                <div class="title product-print-title">
                   1X ZAPPIFY 2.0 <br />
                   +10% OFF
                 </div>
-                <a href="" class="edit">EDIT</a>
+                <a href="#package-wrapper" class="edit">EDIT</a>
               </div>
             </div>
             <div class="right">
-              <div class="qty"><b>QTY: 1</b></div>
-              <div class="price"><b>$39.99</b></div>
+              <div class="qty"><b class="product-print-qty">QTY: 1</b></div>
+              <div class="price"><b class="product-print-price">$39.99</b></div>
             </div>
           </div>
           <ul class="summery">
             <li>
               <div class="first-val">Original Price:</div>
-              <div class="second-val"><b>$88.87</b></div>
+              <div class="second-val"><b class="product-print-original-price">$88.87</b></div>
             </li>
             <li>
               <div class="first-val">Discount:</div>
-              <div class="second-val discount"><b>-$48.88</b></div>
+              <div class="second-val discount"><b class="product-print-discount-price">-$48.88</b></div>
             </li>
             <li>
               <div class="first-val"><b>Total:</b></div>
-              <div class="second-val"><b>$39.99</b></div>
+              <div class="second-val"><b class="product-print-total-price">$39.99</b></div>
             </li>
             <li>
               <div class="info">Shipping and sales tax settled on checkout</div>
