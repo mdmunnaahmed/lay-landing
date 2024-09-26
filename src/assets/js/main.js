@@ -27,34 +27,32 @@ window.addEventListener("load", function () {
   setTimeout(function () {
     stepOne.style.display = "none"; // Hide the first ul (step-one)
     stepTwo.style.display = "flex"; // Show the second ul (step-two)
-		document.querySelector('.step-title').textContent = 'STEP 2'
+    document.querySelector(".step-title").textContent = "STEP 2";
   }, halfDuration); // Trigger after 4 seconds (halfDuration)
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-	const progressBar = document.querySelector('.progess-bar');
-	const span = progressBar.querySelector('span');
-	
-	let progress = 0; // Initial progress
-	const duration = 6000; // Duration in milliseconds
-	const interval = 100; // Update interval in milliseconds
-	const increment = (interval / duration) * 100; // Percentage increment per interval
+document.addEventListener("DOMContentLoaded", function () {
+  const progressBar = document.querySelector(".progess-bar");
+  const span = progressBar.querySelector("span");
 
-	const updateProgress = setInterval(() => {
-			progress += increment; // Increase progress
-			if (progress > 100) progress = 100; // Cap at 100%
-			
-			progressBar.style.width = `${progress}%`; // Update width
-			span.textContent = `${Math.round(progress)}%`; // Update text
+  let progress = 0; // Initial progress
+  const duration = 6000; // Duration in milliseconds
+  const interval = 100; // Update interval in milliseconds
+  const increment = (interval / duration) * 100; // Percentage increment per interval
 
-			// Stop updating when it reaches 100%
-			if (progress >= 100) {
-					clearInterval(updateProgress);
-			}
-	}, interval);
+  const updateProgress = setInterval(() => {
+    progress += increment; // Increase progress
+    if (progress > 100) progress = 100; // Cap at 100%
+
+    progressBar.style.width = `${progress}%`; // Update width
+    span.textContent = `${Math.round(progress)}%`; // Update text
+
+    // Stop updating when it reaches 100%
+    if (progress >= 100) {
+      clearInterval(updateProgress);
+    }
+  }, interval);
 });
-
-
 
 // info modal
 // Select the elements
@@ -194,9 +192,17 @@ function getDivPositions() {
 
     targetDivs.forEach((targetDiv) => {
       const rect = targetDiv.getBoundingClientRect(); // Get the bounding rectangle of the div
-      const divPositionFromTop = rect.top + window.scrollY; // Calculate the position from the top of the page
+      const rect2 = targetDiv.getBoundingClientRect(); // Get the bounding rectangle of the div
+      const divPositionFromTop = rect.top + window.scrollY - 800; // Calculate the position from the top of the page
+      const divPositionFromTop2 = rect2.top + window.scrollY + 1500; // Calculate the position from the top of the page
 
-      if (window.scrollY > divPositionFromTop - 100) {
+      if (divPositionFromTop2 < window.scrollY) {
+        document.querySelector(".scroll-tabs-two.desktop-hidden").classList.add("hide");
+      }else if((rect2.top + window.scrollY ) > window.scrollY){
+        document.querySelector(".scroll-tabs-two.desktop-hidden").classList.remove("hide");
+      }
+
+      if (window.scrollY > divPositionFromTop) {
         const targetRef = document.querySelector(targetClass + "-ref"); // Vanilla JS selector for the target-ref class
         if (targetRef) {
           targetRef.classList.add("active");
@@ -217,52 +223,49 @@ getDivPositions();
 // Add scroll event listener to check positions dynamically
 window.addEventListener("scroll", getDivPositions);
 
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
-	var faqTitles = document.querySelectorAll(".faq-title");
+  var faqTitles = document.querySelectorAll(".faq-title");
 
-	faqTitles.forEach(function (title) {
-		title.addEventListener("click", function () {
-			var item = this.parentNode;
-			var content = item.querySelector(".faq-content");
+  faqTitles.forEach(function (title) {
+    title.addEventListener("click", function () {
+      var item = this.parentNode;
+      var content = item.querySelector(".faq-content");
 
-			if (item.classList.contains("active")) {
-				// Close the item
-				content.style.height = "0";
-				item.classList.remove("active");
-			} else {
-				// Close other open items
-				document.querySelectorAll(".faq-item.active").forEach(function (activeItem) {
-					var activeContent = activeItem.querySelector(".faq-content");
-					activeContent.style.height = "0";
-					activeItem.classList.remove("active");
-				});
+      if (item.classList.contains("active")) {
+        // Close the item
+        content.style.height = "0";
+        item.classList.remove("active");
+      } else {
+        // Close other open items
+        document.querySelectorAll(".faq-item.active").forEach(function (activeItem) {
+          var activeContent = activeItem.querySelector(".faq-content");
+          activeContent.style.height = "0";
+          activeItem.classList.remove("active");
+        });
 
-				// Open this item
-				content.style.height = content.scrollHeight + "px";
-				item.classList.add("active");
-			}
-		});
-	});
+        // Open this item
+        content.style.height = content.scrollHeight + "px";
+        item.classList.add("active");
+      }
+    });
+  });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-	// Show the first modal after 15 seconds
-	setTimeout(function () {
-		document.getElementById("modal1").style.display = "flex";
-	}, 12000);
+  // Show the first modal after 15 seconds
+  setTimeout(function () {
+    document.getElementById("modal1").style.display = "flex";
+  }, 12000);
 
-	// Close the first modal and then show the second modal
-	window.closeModal2 = function (modalId) {
-		document.getElementById(modalId).style.display = "none";
+  // Close the first modal and then show the second modal
+  window.closeModal2 = function (modalId) {
+    document.getElementById(modalId).style.display = "none";
 
-		if (modalId === "modal1") {
-			// Show the second modal after closing the first modal
-			setTimeout(function () {
-				document.getElementById("modal2").style.display = "flex";
-			}, 8000); // Show modal2 after 1 second
-		}
-	};
+    if (modalId === "modal1") {
+      // Show the second modal after closing the first modal
+      setTimeout(function () {
+        document.getElementById("modal2").style.display = "flex";
+      }, 8000); // Show modal2 after 1 second
+    }
+  };
 });

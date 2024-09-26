@@ -397,6 +397,11 @@
   background-color: #eeeeee;
   padding: 15px 10px;
   z-index: 4;
+  transition: all .1s linear;
+  &.hide {
+    visibility: hidden;
+    opacity: 0;
+  }
   @include breakpoint(max-sm) {
     padding-bottom: 10px;
   }
