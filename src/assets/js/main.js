@@ -194,7 +194,7 @@ function getDivPositions() {
       const rect = targetDiv.getBoundingClientRect(); // Get the bounding rectangle of the div
       const rect2 = targetDiv.getBoundingClientRect(); // Get the bounding rectangle of the div
       const divPositionFromTop = rect.top + window.scrollY - 800; // Calculate the position from the top of the page
-      const divPositionFromTop2 = rect2.top + window.scrollY + 1500; // Calculate the position from the top of the page
+      const divPositionFromTop2 = rect2.top + window.scrollY + 1850; // Calculate the position from the top of the page
 
       if (divPositionFromTop2 < window.scrollY) {
         document.querySelector(".scroll-tabs-two.desktop-hidden").classList.add("hide");
