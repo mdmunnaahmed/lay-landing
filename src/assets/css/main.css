@@ -758,7 +758,6 @@ button {
   transition: width 0.2s linear;
   position: relative;
   height: 100%;
-  width: 100%;
   border-radius: 25px 25px 25px 25px;
 }
 .progess-bar::before {
