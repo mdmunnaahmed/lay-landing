@@ -1337,6 +1337,7 @@ button {
   text-align: center;
   background-color: #eeeeee;
   position: relative;
+  transition: all 0.3s linear;
 }
 .scroll-tabs-two ul li:not(:last-child)::before {
   position: absolute;
@@ -1346,6 +1347,7 @@ button {
   left: 100%;
   top: 16px;
   background-color: #d8d8d8;
+  transition: all 0.3s linear;
 }
 @media (min-width: 576px) {
   .scroll-tabs-two ul li:not(:last-child)::before {

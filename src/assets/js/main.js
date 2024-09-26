@@ -85,3 +85,78 @@ productCards.forEach((card) => {
     });
   });
 });
+
+// Create an IntersectionObserver with a 100px offset from the bottom of the viewport
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const liElement = entry.target;
+
+      if (entry.isIntersecting) {
+        // Add the class only when the element enters the viewport
+        liElement.classList.add("in-view");
+      }
+      // No action needed for out-of-view elements,
+      // as we want to keep the class on previously added elements.
+    });
+  },
+  {
+    root: null, // The viewport is the root
+    threshold: 0, // Trigger as soon as any part of the element enters the viewport
+    rootMargin: "0px 0px -100px 0px", // 100px from the bottom of the viewport
+  }
+);
+
+// Target all the <li> elements inside the scroll-tabs
+document.querySelectorAll(".scroll-tabs ul li").forEach((li) => {
+  observer.observe(li); // Start observing each <li> element
+});
+
+const options = {
+  root: null, // Use the viewport as the root
+  rootMargin: "0px 0px -500px 0px", // Offset 100px from the bottom
+  threshold: 110, // Trigger when any part of the element enters the viewport
+};
+
+const activeItems = []; // Array to keep track of active items
+const scrollTabs = document.querySelector(".scroll-tabs-two"); // Reference to the scroll-tabs-two
+
+// Create an IntersectionObserver
+const observer2 = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const id = entry.target.id; // Get the ID of the section
+    const correspondingLi = document.querySelector(`.scroll-tabs-two ul li a[href="#${id}"]`).parentElement; // Find the corresponding li
+
+    if (entry.isIntersecting) {
+      // Add active class to the corresponding <li> and track it
+      if (!activeItems.includes(correspondingLi)) {
+        correspondingLi.classList.add("active");
+        activeItems.push(correspondingLi);
+      }
+    } else {
+      // If the section is not intersecting, remove the active class from the last added item
+      if (activeItems.length > 0 && activeItems[activeItems.length - 1] === correspondingLi) {
+        activeItems.pop(); // Remove the last active item from tracking
+        correspondingLi.classList.remove("active"); // Remove active class from the last item
+      }
+    }
+  });
+
+  // Hide scroll-tabs-two if the last section is out of view
+  const lastSection = document.querySelector("#gurantee-checkout"); // Get the last section
+  if (lastSection) {
+    let lastSectionRect = lastSection.getBoundingClientRect();
+		console.log(lastSectionRect);
+		
+    if (lastSectionRect.top < window.innerHeight) {
+      scrollTabs.style.display = "none"; // Hide scroll-tabs-two
+    } else {
+      scrollTabs.style.display = "block"; // Show scroll-tabs-two
+    }
+  }
+});
+
+// Observe each section
+document.querySelectorAll("div[id]").forEach((section) => {
+  observer2.observe(section);
+});

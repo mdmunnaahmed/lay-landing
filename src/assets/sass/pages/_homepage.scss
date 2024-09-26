@@ -411,6 +411,7 @@
       text-align: center;
       background-color: #eeeeee;
       position: relative;
+      transition: all .3s linear;
       &:not(:last-child) {
         &::before {
           position: absolute;
@@ -420,6 +421,7 @@
           left: 100%;
           top: 16px;
           background-color: #d8d8d8;
+          transition: all .3s linear;
           @include breakpoint(sm) {
             top: 33px;
           }
