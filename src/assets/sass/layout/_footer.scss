@@ -120,6 +120,9 @@
   @include breakpoint(xl) {
     padding-right: 30px;
   }
+  @include breakpoint(max-lg) {
+    padding-right: 30px;
+  }
   p {
     font-size: 17px;
     line-height: 1.3;

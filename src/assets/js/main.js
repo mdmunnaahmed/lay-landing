@@ -5,6 +5,27 @@ $(window).on("load", function () {
   $(".preloader").fadeOut(1000);
 });
 
+// info modal
+// Select the elements
+const questionModalToggle = document.querySelector(".question-modal-toggle");
+const questionMarkModal = document.querySelector(".question-mark-modal");
+const closeModal = document.querySelector(".close-modal");
+
+// Function to toggle the modal
+function toggleModal() {
+  questionMarkModal.classList.toggle("active"); // Toggle the 'active' class
+}
+
+// Event listeners
+questionModalToggle.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent default anchor behavior
+  toggleModal();
+});
+
+closeModal.addEventListener("click", () => {
+  toggleModal(); // Close the modal when clicking the close button
+});
+
 document.querySelectorAll(".form-control").forEach((input) => {
   input.addEventListener("blur", function () {
     const formGroup = this.closest(".form-group");
@@ -73,7 +94,7 @@ productCards.forEach((card) => {
     });
 
     document.querySelectorAll(".product-print-discount-price").forEach((el) => {
-      el.textContent = discountPrice.toFixed(2);
+      el.textContent = "$" + discountPrice.toFixed(2);
     });
 
     document.querySelectorAll(".product-print-total-price").forEach((el) => {
@@ -146,8 +167,8 @@ const observer2 = new IntersectionObserver((entries) => {
   const lastSection = document.querySelector("#gurantee-checkout"); // Get the last section
   if (lastSection) {
     let lastSectionRect = lastSection.getBoundingClientRect();
-		console.log(lastSectionRect);
-		
+    console.log(lastSectionRect);
+
     if (lastSectionRect.top < window.innerHeight) {
       scrollTabs.style.display = "none"; // Hide scroll-tabs-two
     } else {
@@ -160,3 +181,5 @@ const observer2 = new IntersectionObserver((entries) => {
 document.querySelectorAll("div[id]").forEach((section) => {
   observer2.observe(section);
 });
+
+

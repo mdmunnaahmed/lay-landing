@@ -317,7 +317,6 @@ button {
   position: absolute !important;
   right: 15px;
   top: 20px;
-  pointer-events: none;
 }
 
 .feature-section {
@@ -455,6 +454,11 @@ button {
   transition: height 0.3s ease;
 }
 @media (min-width: 1200px) {
+  .faq-content {
+    padding-right: 30px;
+  }
+}
+@media (max-width: 991px) {
   .faq-content {
     padding-right: 30px;
   }
