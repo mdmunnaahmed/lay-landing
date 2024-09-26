@@ -904,6 +904,9 @@ button {
 .product-card.active.best-deal-card .best-deal {
   border-radius: 5px 5px 0 0;
   background-color: var(--c-base);
+  padding-block: 22px;
+  padding-top: 24px;
+  margin-bottom: 30px;
 }
 .product-card.active::before {
   opacity: 1;
@@ -928,12 +931,12 @@ button {
   margin-top: -36px;
   margin-left: -40px;
   margin-right: -40px;
-  padding: 16px 10px;
+  padding: 20px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  margin-bottom: 30px;
+  margin-bottom: 23px;
   line-height: 1.1;
 }
 @media (max-width: 1199px) {
@@ -1424,7 +1427,7 @@ button {
   margin-top: 10px;
 }
 .form-area .summery-area .product-item .left img {
-  width: 35px;
+  height: 65px;
 }
 .form-area .summery-area .product-item .price {
   margin-top: 8px;
