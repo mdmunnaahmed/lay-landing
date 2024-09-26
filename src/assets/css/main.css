@@ -1032,6 +1032,11 @@ button {
   font-weight: 600;
   margin-inline: 6px;
 }
+@media (max-width: 1399px) {
+  .product-card .package-details {
+    font-size: 19px;
+  }
+}
 @media (max-width: 1199px) {
   .product-card .package-details {
     font-size: 16px;
