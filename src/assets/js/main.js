@@ -1,9 +1,59 @@
 "user strict";
 
 // Preloader
-$(window).on("load", function () {
-  $(".preloader").fadeOut(1000);
+window.addEventListener("load", function () {
+  const loadingPage = document.querySelector(".main-loading-page-wrapper");
+  const stepOne = document.querySelector(".step-one");
+  const stepTwo = document.querySelector(".step-two");
+
+  const totalDuration = 7000; // Total duration for both steps and loading page (8 seconds)
+  const halfDuration = totalDuration / 2; // First half (4 seconds)
+
+  // Step 1: Show loading page for 8 seconds
+  setTimeout(function () {
+    loadingPage.style.transition = "opacity 1s"; // Add transition for smooth fade out
+    loadingPage.style.opacity = 0; // Fade out loading page
+
+    // After 1s fade-out, hide the loading page
+    setTimeout(function () {
+      loadingPage.style.display = "none";
+    }, 1000);
+  }, totalDuration); // Keep the loading screen for 8 seconds before fading out
+
+  // Step 2: Show the first ul (step-one) immediately after loading page starts
+  stepOne.style.display = "flex";
+
+  // Step 3: Hide step-one and show step-two after the first half of the total duration (4s)
+  setTimeout(function () {
+    stepOne.style.display = "none"; // Hide the first ul (step-one)
+    stepTwo.style.display = "flex"; // Show the second ul (step-two)
+  }, halfDuration); // Trigger after 4 seconds (halfDuration)
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+	const progressBar = document.querySelector('.progess-bar');
+	const span = progressBar.querySelector('span');
+	
+	let progress = 0; // Initial progress
+	const duration = 6000; // Duration in milliseconds
+	const interval = 100; // Update interval in milliseconds
+	const increment = (interval / duration) * 100; // Percentage increment per interval
+
+	const updateProgress = setInterval(() => {
+			progress += increment; // Increase progress
+			if (progress > 100) progress = 100; // Cap at 100%
+			
+			progressBar.style.width = `${progress}%`; // Update width
+			span.textContent = `${Math.round(progress)}%`; // Update text
+
+			// Stop updating when it reaches 100%
+			if (progress >= 100) {
+					clearInterval(updateProgress);
+			}
+	}, interval);
+});
+
+
 
 // info modal
 // Select the elements
@@ -145,7 +195,7 @@ function getDivPositions() {
       const rect = targetDiv.getBoundingClientRect(); // Get the bounding rectangle of the div
       const divPositionFromTop = rect.top + window.scrollY; // Calculate the position from the top of the page
 
-      if (window.scrollY > (divPositionFromTop - 100)) {
+      if (window.scrollY > divPositionFromTop - 100) {
         const targetRef = document.querySelector(targetClass + "-ref"); // Vanilla JS selector for the target-ref class
         if (targetRef) {
           targetRef.classList.add("active");

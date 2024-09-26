@@ -122,7 +122,7 @@
   span {
     padding-right: 10px;
     @include breakpoint(max-lg) {
-        padding-right: 0;
+      padding-right: 0;
     }
   }
 }
@@ -347,13 +347,24 @@
   }
 }
 
-
-
-// loader page css man 
+// loader page css man
 .main-loading-page-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 12;
+  opacity: 1;
+  visibility: visible;
+  transition: all .3s linear;
+  &.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
   .top-logo {
     padding-block: 17px;
-    @include breakpoint (max-md) {
+    @include breakpoint(max-md) {
       padding-block: 10px;
     }
   }
@@ -361,17 +372,17 @@
     max-width: 790px !important;
     padding-inline: 20px;
     padding-bottom: 50px;
-    @include breakpoint (max-md) {
+    @include breakpoint(max-md) {
       margin-top: 30px !important;
     }
     .content-box {
       padding: 40px 90px 50px !important;
-      @include breakpoint (max-md) {
+      @include breakpoint(max-md) {
         padding: 30px 10px 50px 30px !important;
       }
       .list-check {
         gap: 40px;
-        @include breakpoint (max-md) {
+        @include breakpoint(max-md) {
           gap: 8px;
         }
         &.style-two {
@@ -380,7 +391,7 @@
           flex-direction: initial;
           li {
             width: 38%;
-            @include breakpoint (max-md) {
+            @include breakpoint(max-md) {
               width: 100%;
               font-size: 16px;
               &:nth-child(2) {
@@ -392,7 +403,7 @@
             }
           }
         }
-        li { 
+        li {
           gap: 5px;
           font-weight: 700;
           font-size: 18px;
@@ -406,21 +417,28 @@
   }
 }
 .main-loading-page-wrapper .bottom-content .subtitle {
-  @include breakpoint (max-md) {
+  @include breakpoint(max-md) {
     margin-bottom: 27px !important;
   }
 }
 
-@keyframes move{0%{background-position:0 0}to{background-position:50px 50px}}
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 50px 50px;
+  }
+}
 .progess-wrapper {
-  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .3);
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
   background-color: #cdd3d9;
   border: 2px solid #b8bdc2;
   border-radius: 25px;
   padding: 3px;
   height: 44px;
   margin-bottom: 38px;
-  @include breakpoint (max-md) {
+  @include breakpoint(max-md) {
     height: 22px;
     padding: 1px;
     border: 1px solid #b8bdc2;
@@ -428,8 +446,8 @@
   }
 }
 .progess-bar {
-  background: linear-gradient(270deg, #00A653 0, #004D26 100%);
-  box-shadow: inset 0 2px 9px rgba(255, 255, 255, .3), inset 0 -2px 6px rgba(0, 0, 0, .4);
+  background: linear-gradient(270deg, #00a653 0, #004d26 100%);
+  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
   transition: width 0.2s linear;
   position: relative;
   height: 100%;
@@ -441,7 +459,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-image: linear-gradient(135deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%);
     z-index: 1;
     background-size: 50px 50px;
     animation: move 2s linear infinite;
@@ -455,22 +473,22 @@
     line-height: 2;
     color: #fff;
     font-family: "Helvetica Bold", Helvetica, Arial, sans-serif;
-    @include breakpoint (max-md) {
+    @include breakpoint(max-md) {
       font-size: 12px;
-      line-height: 1.5
+      line-height: 1.5;
     }
   }
 }
 
 .side-content {
   display: flex;
-  @include breakpoint (max-md) {
+  @include breakpoint(max-md) {
     flex-wrap: wrap;
     justify-content: center;
   }
   .left-content {
     width: 240px;
-    @include breakpoint (max-md) {
+    @include breakpoint(max-md) {
       margin-inline: auto;
       margin-bottom: 50px;
     }
@@ -481,7 +499,7 @@
   .right-content {
     width: calc(100% - 240px);
     max-width: 450px;
-    @include breakpoint (max-md) {
+    @include breakpoint(max-md) {
       text-align: center;
       max-width: 100%;
       margin-inline: auto;
@@ -492,7 +510,7 @@
       justify-content: end;
       gap: 4px;
       margin-bottom: 15px;
-      @include breakpoint (max-md) {
+      @include breakpoint(max-md) {
         justify-content: center;
       }
       span {
@@ -508,7 +526,7 @@
       text-align: right !important;
       font-size: 15px;
       margin-bottom: 5px !important;
-      @include breakpoint (max-md) {
+      @include breakpoint(max-md) {
         text-align: center !important;
       }
     }
@@ -518,7 +536,7 @@
       font-size: 15px;
       color: #000;
       font-weight: 400;
-      @include breakpoint (max-md) {
+      @include breakpoint(max-md) {
         text-align: center !important;
       }
       span {
@@ -528,4 +546,4 @@
   }
 }
 
-// loader page css man 
+// loader page css man
