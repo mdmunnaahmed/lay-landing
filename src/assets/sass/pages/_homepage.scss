@@ -190,12 +190,20 @@
     &.best-deal-card {
       background: #fffef4;
       border: 0;
+      @include breakpoint(max-xl) {
+        padding-inline: 17px;
+      }
       .best-deal {
         border-radius: 5px 5px 0 0;
         background-color: var(--c-base);
         padding-block: 22px;
         padding-top: 24px;
         margin-bottom: 30px;
+        @include breakpoint(max-xl) {
+          padding-top: 15px;
+          padding-bottom: 15px;
+          margin-bottom: 20px;
+        }
       }
     }
     &::before {
@@ -231,10 +239,11 @@
     line-height: 1.1;
     @include breakpoint(max-xl) {
       margin-top: -30px;
-      margin-left: -16px;
-      margin-right: -16px;
-      padding-top: 2px;
-      padding-bottom: 7px;
+      margin-left: -11px;
+      margin-right: -11px;
+      padding-top: 5px;
+      padding-bottom: 12px;
+      margin-bottom: 23px;
     }
     @include breakpoint(max-lg) {
       padding-top: 12px;
