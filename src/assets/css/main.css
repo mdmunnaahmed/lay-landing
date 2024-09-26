@@ -679,6 +679,184 @@ button {
   font-weight: bold;
 }
 
+.main-loading-page-wrapper .top-logo {
+  padding-block: 17px;
+}
+@media (max-width: 767px) {
+  .main-loading-page-wrapper .top-logo {
+    padding-block: 10px;
+  }
+}
+.main-loading-page-wrapper .bottom-content {
+  max-width: 780px !important;
+  padding-inline: 20px;
+  padding-bottom: 50px;
+}
+@media (max-width: 767px) {
+  .main-loading-page-wrapper .bottom-content {
+    margin-top: 30px !important;
+  }
+}
+@media (max-width: 767px) {
+  .main-loading-page-wrapper .bottom-content .content-box {
+    padding: 30px 10px 55px 30px !important;
+  }
+}
+.main-loading-page-wrapper .bottom-content .content-box .list-check li {
+  gap: 5px;
+  font-size: 16px;
+}
+.main-loading-page-wrapper .bottom-content .content-box .list-check li img {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+  .main-loading-page-wrapper .bottom-content .subtitle {
+    margin-bottom: 27px !important;
+  }
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 50px 50px;
+  }
+}
+.progess-wrapper {
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+  background-color: #cdd3d9;
+  border: 2px solid #b8bdc2;
+  border-radius: 25px;
+  padding: 3px;
+  height: 44px;
+  margin-bottom: 38px;
+}
+@media (max-width: 767px) {
+  .progess-wrapper {
+    height: 22px;
+    padding: 1px;
+    border: 1px solid #b8bdc2;
+    margin-bottom: 30px;
+  }
+}
+
+.progess-bar {
+  background: linear-gradient(270deg, #00A653 0, #004D26 100%);
+  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  transition: width 0.2s linear;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 25px 25px 25px 25px;
+}
+.progess-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%);
+  z-index: 1;
+  background-size: 50px 50px;
+  animation: move 2s linear infinite;
+}
+.progess-bar span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 2;
+  color: #fff;
+  font-family: "Helvetica Bold", Helvetica, Arial, sans-serif;
+}
+@media (max-width: 767px) {
+  .progess-bar span {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+.side-content {
+  display: flex;
+}
+@media (max-width: 767px) {
+  .side-content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.side-content .left-content {
+  width: 240px;
+}
+@media (max-width: 767px) {
+  .side-content .left-content {
+    margin-inline: auto;
+    margin-bottom: 50px;
+  }
+}
+.side-content .left-content img {
+  max-width: 100%;
+}
+.side-content .right-content {
+  width: calc(100% - 240px);
+  max-width: 450px;
+}
+@media (max-width: 767px) {
+  .side-content .right-content {
+    text-align: center;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+}
+.side-content .right-content .star {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 4px;
+  margin-bottom: 15px;
+}
+@media (max-width: 767px) {
+  .side-content .right-content .star {
+    justify-content: center;
+  }
+}
+.side-content .right-content .star span {
+  font-weight: 700;
+  font-size: 15px;
+  color: #000;
+}
+.side-content .right-content .star img {
+  width: 90px;
+}
+.side-content .right-content .text {
+  text-align: right !important;
+  font-size: 15px;
+  margin-bottom: 5px !important;
+}
+@media (max-width: 767px) {
+  .side-content .right-content .text {
+    text-align: center !important;
+  }
+}
+.side-content .right-content .bottom-text {
+  text-align: right;
+  font-size: 15px;
+  color: #000;
+  font-weight: 400;
+}
+@media (max-width: 767px) {
+  .side-content .right-content .bottom-text {
+    text-align: center !important;
+  }
+}
+.side-content .right-content .bottom-text span {
+  font-weight: 700;
+}
+
 .heading-bar {
   font-size: 18px;
   padding: 8px 25px;
