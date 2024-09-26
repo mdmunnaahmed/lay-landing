@@ -133,53 +133,35 @@ document.querySelectorAll(".scroll-tabs ul li").forEach((li) => {
   observer.observe(li); // Start observing each <li> element
 });
 
-const options = {
-  root: null, // Use the viewport as the root
-  rootMargin: "0px 0px -500px 0px", // Offset 100px from the bottom
-  threshold: 110, // Trigger when any part of the element enters the viewport
-};
+// Array of selectors for different item classes
+const targetClasses = ["#shipping-info", "#payment-form", "#order"]; // Add your class selectors here
 
-const activeItems = []; // Array to keep track of active items
-const scrollTabs = document.querySelector(".scroll-tabs-two"); // Reference to the scroll-tabs-two
+// Function to get the position from the top of the page for multiple items
+function getDivPositions() {
+  targetClasses.forEach((targetClass) => {
+    const targetDivs = document.querySelectorAll(targetClass); // Select all divs of the current class
 
-// Create an IntersectionObserver
-const observer2 = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const id = entry.target.id; // Get the ID of the section
-    const correspondingLi = document.querySelector(`.scroll-tabs-two ul li a[href="#${id}"]`).parentElement; // Find the corresponding li
+    targetDivs.forEach((targetDiv) => {
+      const rect = targetDiv.getBoundingClientRect(); // Get the bounding rectangle of the div
+      const divPositionFromTop = rect.top + window.scrollY; // Calculate the position from the top of the page
 
-    if (entry.isIntersecting) {
-      // Add active class to the corresponding <li> and track it
-      if (!activeItems.includes(correspondingLi)) {
-        correspondingLi.classList.add("active");
-        activeItems.push(correspondingLi);
+      if (window.scrollY > (divPositionFromTop - 100)) {
+        const targetRef = document.querySelector(targetClass + "-ref"); // Vanilla JS selector for the target-ref class
+        if (targetRef) {
+          targetRef.classList.add("active");
+        }
+      } else {
+        const targetRef = document.querySelector(targetClass + "-ref"); // Vanilla JS selector for the target-ref class
+        if (targetRef) {
+          targetRef.classList.remove("active");
+        }
       }
-    } else {
-      // If the section is not intersecting, remove the active class from the last added item
-      if (activeItems.length > 0 && activeItems[activeItems.length - 1] === correspondingLi) {
-        activeItems.pop(); // Remove the last active item from tracking
-        correspondingLi.classList.remove("active"); // Remove active class from the last item
-      }
-    }
+    });
   });
+}
 
-  // Hide scroll-tabs-two if the last section is out of view
-  const lastSection = document.querySelector("#gurantee-checkout"); // Get the last section
-  if (lastSection) {
-    let lastSectionRect = lastSection.getBoundingClientRect();
-    console.log(lastSectionRect);
+// Call the function to get the positions initially
+getDivPositions();
 
-    if (lastSectionRect.top < window.innerHeight) {
-      scrollTabs.style.display = "none"; // Hide scroll-tabs-two
-    } else {
-      scrollTabs.style.display = "block"; // Show scroll-tabs-two
-    }
-  }
-});
-
-// Observe each section
-document.querySelectorAll("div[id]").forEach((section) => {
-  observer2.observe(section);
-});
-
-
+// Add scroll event listener to check positions dynamically
+window.addEventListener("scroll", getDivPositions);
