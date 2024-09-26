@@ -27,6 +27,7 @@ window.addEventListener("load", function () {
   setTimeout(function () {
     stepOne.style.display = "none"; // Hide the first ul (step-one)
     stepTwo.style.display = "flex"; // Show the second ul (step-two)
+		document.querySelector('.step-title').textContent = 'STEP 2'
   }, halfDuration); // Trigger after 4 seconds (halfDuration)
 });
 

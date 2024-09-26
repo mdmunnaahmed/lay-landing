@@ -73,96 +73,123 @@
   </div>
 </div>
 
-
 <!-- modal area start -->
 <!-- active class add to visible modal -->
- <div class="modal-container" id="modal1" onclick="closeModal('modal1')">
-     <div class="modal">
-         <div class="modal-wrapper">
-             <div class="modal-content">
-                 <h2 class="title">WAIT!</h2>
-                 <div class="discount-text">Save An Extra 10% OFF On Top Of The <span> 50% Discount</span> With This Free Coupon!</div>
-                 <p>Congratulations! This is a special promotion that only a handful of people receive every week. You must use this coupon now or it will be given away to another customer.</p>
-                 <div class="time-tracker">
-                     <div class="time">04 : 22</div>
-                     <span>minutes seconds</span>
-                 </div>
-                 <a href="" class="button">Activate 10% OFF Coupon!</a>
-             </div>
-         </div>
-         <span class="close-button">
-             <svg width="64px" height="64px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Close</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Close"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="16.9999" y1="7" x2="7.00001" y2="16.9999" id="Path" stroke="#ffffff" stroke-width="2" stroke-linecap="round"> </line> <line x1="7.00006" y1="7" x2="17" y2="16.9999" id="Path" stroke="#ffffff" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
-         </span>
-     </div>
- </div>
-
- <div class="modal-container" id="modal2">
-     <div class="modal modal-two">
-        <div class="modal-wrapper">
-            <div class="modal-content">
-                <h2 class="title">WAIT!</h2>
-                <div class="soldout-text">Don't miss out! Your items are cart reserved and are almost <span>SOLD OUT</span>. Complete your purchase now before they are all gone!</div>
-                <a href="" class="button">Secure My Items Now!</a>
-            </div>
+<div class="modal-container" id="modal1">
+  <div class="modal">
+    <div class="modal-wrapper">
+      <div class="modal-content">
+        <h2 class="title">WAIT!</h2>
+        <div class="discount-text">Save An Extra 10% OFF On Top Of The <span> 50% Discount</span> With This Free Coupon!</div>
+        <p>Congratulations! This is a special promotion that only a handful of people receive every week. You must use this coupon now or it will be given away to another customer.</p>
+        <div class="time-tracker">
+          <div class="time">04 : 22</div>
+          <span>minutes seconds</span>
         </div>
-        <span class="close-button"  onclick="closeModal('modal2')">
-            <svg width="64px" height="64px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Close</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Close"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="16.9999" y1="7" x2="7.00001" y2="16.9999" id="Path" stroke="#ffffff" stroke-width="2" stroke-linecap="round"> </line> <line x1="7.00006" y1="7" x2="17" y2="16.9999" id="Path" stroke="#ffffff" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
-        </span>
-     </div>
- </div>
+        <a href="" class="button">Activate 10% OFF Coupon!</a>
+      </div>
+    </div>
+    <span class="close-button" onclick="closeModal2('modal1')">
+      <svg width="64px" height="64px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+          <title>Close</title>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Close">
+              <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"></rect>
+              <line x1="16.9999" y1="7" x2="7.00001" y2="16.9999" id="Path" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></line>
+              <line x1="7.00006" y1="7" x2="17" y2="16.9999" id="Path" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></line>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </span>
+  </div>
+</div>
+
+<div class="modal-container" id="modal2">
+  <div class="modal modal-two">
+    <div class="modal-wrapper">
+      <div class="modal-content">
+        <h2 class="title">WAIT!</h2>
+        <div class="soldout-text">Don't miss out! Your items are cart reserved and are almost <span>SOLD OUT</span>. Complete your purchase now before they are all gone!</div>
+        <a href="" class="button">Secure My Items Now!</a>
+      </div>
+    </div>
+    <span class="close-button" onclick="closeModal2('modal2')">
+      <svg width="64px" height="64px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+          <title>Close</title>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Close">
+              <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"></rect>
+              <line x1="16.9999" y1="7" x2="7.00001" y2="16.9999" id="Path" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></line>
+              <line x1="7.00006" y1="7" x2="17" y2="16.9999" id="Path" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></line>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </span>
+  </div>
+</div>
 <!-- modal area end -->
 
 <!-- faq script start -->
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var faqTitles = document.querySelectorAll('.faq-title');
+  document.addEventListener("DOMContentLoaded", function () {
+    var faqTitles = document.querySelectorAll(".faq-title");
 
-        faqTitles.forEach(function(title) {
-            title.addEventListener('click', function() {
-                var item = this.parentNode;
-                var content = item.querySelector('.faq-content');
+    faqTitles.forEach(function (title) {
+      title.addEventListener("click", function () {
+        var item = this.parentNode;
+        var content = item.querySelector(".faq-content");
 
-                if (item.classList.contains('active')) {
-                    // Close the item
-                    content.style.height = '0';
-                    item.classList.remove('active');
-                } else {
-                    // Close other open items
-                    document.querySelectorAll('.faq-item.active').forEach(function(activeItem) {
-                        var activeContent = activeItem.querySelector('.faq-content');
-                        activeContent.style.height = '0';
-                        activeItem.classList.remove('active');
-                    });
+        if (item.classList.contains("active")) {
+          // Close the item
+          content.style.height = "0";
+          item.classList.remove("active");
+        } else {
+          // Close other open items
+          document.querySelectorAll(".faq-item.active").forEach(function (activeItem) {
+            var activeContent = activeItem.querySelector(".faq-content");
+            activeContent.style.height = "0";
+            activeItem.classList.remove("active");
+          });
 
-                    // Open this item
-                    content.style.height = content.scrollHeight + 'px';
-                    item.classList.add('active');
-                }
-            });
-        });
+          // Open this item
+          content.style.height = content.scrollHeight + "px";
+          item.classList.add("active");
+        }
+      });
     });
+  });
 </script>
 <!-- faq script end -->
 
 <script>
-// Show the first modal after 5 seconds
-setTimeout(function () {
-    document.getElementById('modal1').style.display = 'flex';
-}, 5000);
+  document.addEventListener("DOMContentLoaded", function () {
+    // Show the first modal after 15 seconds
+    setTimeout(function () {
+      document.getElementById("modal1").style.display = "flex";
+    }, 12000);
 
-// Close the first modal and then show the second modal
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-    
-    if (modalId === 'modal1') {
+    // Close the first modal and then show the second modal
+    window.closeModal2 = function (modalId) {
+      document.getElementById(modalId).style.display = "none";
+
+      if (modalId === "modal1") {
         // Show the second modal after closing the first modal
         setTimeout(function () {
-            document.getElementById('modal2').style.display = 'flex';
-        }, 5000);
-
-    }
-}
-</script> <!-- jQuery library -->
+          document.getElementById("modal2").style.display = "flex";
+        }, 8000); // Show modal2 after 1 second
+      }
+    };
+  });
+</script>
+ <!-- jQuery library -->
 <script src="assets/js/lib/jquery-3.7.1.min.js"></script>
 <!-- main js -->
 <script src="assets/js/main.js"></script>
