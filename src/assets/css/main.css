@@ -960,6 +960,7 @@ button {
   padding: 6px 0;
   text-align: center;
   color: #404040;
+  font-weight: 500;
 }
 
 #secure-checkout {
