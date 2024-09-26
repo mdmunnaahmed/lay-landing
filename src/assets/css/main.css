@@ -447,6 +447,9 @@ button {
   line-height: 1.25;
   cursor: pointer;
 }
+.faq-title > div {
+  padding-right: 10px;
+}
 @media (max-width: 991px) {
   .faq-title {
     padding-left: 15px;

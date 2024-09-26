@@ -198,7 +198,7 @@ function getDivPositions() {
 
       if (divPositionFromTop2 < window.scrollY) {
         document.querySelector(".scroll-tabs-two.desktop-hidden").classList.add("hide");
-      }else if((rect2.top + window.scrollY ) > window.scrollY){
+      } else if (rect2.top + window.scrollY > window.scrollY) {
         document.querySelector(".scroll-tabs-two.desktop-hidden").classList.remove("hide");
       }
 
@@ -269,3 +269,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 });
+
+// Set countdown duration (5 minutes in seconds)
+let countdownDuration = (5 * 60) + 12; // 5 minutes in seconds
+
+// Update the timer every second
+const countdownInterval = setInterval(() => {
+  // Calculate minutes and seconds
+  const minutes = Math.floor(countdownDuration / 60);
+  const seconds = countdownDuration % 60;
+
+  // Format minutes and seconds with leading zeros
+  const formattedMinutes = String(minutes).padStart(2, "0");
+  const formattedSeconds = String(seconds).padStart(2, "0");
+
+  // Update the time display
+  document.getElementById("time").textContent = `${formattedMinutes} : ${formattedSeconds}`;
+
+  // Decrease the countdown duration
+  countdownDuration--;
+
+  // Stop the countdown when it reaches zero
+  if (countdownDuration < 0) {
+    clearInterval(countdownInterval);
+    document.getElementById("time").textContent = "00 : 00"; // Final display
+  }
+}, 1000); // Update every second
