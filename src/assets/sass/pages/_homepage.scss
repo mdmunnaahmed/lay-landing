@@ -113,6 +113,9 @@
     padding-inline: 20px;
     overflow: hidden;
   }
+  @include breakpoint(max-md) {
+    padding-inline: 15px;
+  }
 }
 .right-content {
   @include breakpoint(max-lg) {
@@ -397,7 +400,7 @@
   background-color: #eeeeee;
   padding: 15px 10px;
   z-index: 4;
-  transition: all .1s linear;
+  transition: all 0.1s linear;
   &.hide {
     visibility: hidden;
     opacity: 0;
@@ -426,7 +429,7 @@
       text-align: center;
       background-color: #eeeeee;
       position: relative;
-      transition: all .3s linear;
+      transition: all 0.3s linear;
       &:not(:last-child) {
         &::before {
           position: absolute;
@@ -436,7 +439,7 @@
           left: 100%;
           top: 16px;
           background-color: #d8d8d8;
-          transition: all .3s linear;
+          transition: all 0.3s linear;
           @include breakpoint(sm) {
             top: 33px;
           }
@@ -594,6 +597,7 @@
   }
   @include breakpoint(max-lg) {
     width: 100%;
+    padding-left: 0;
   }
   > * {
     flex-grow: 1;
@@ -618,6 +622,7 @@
       margin-bottom: 45px;
       @include breakpoint(max-lg) {
         font-size: 15px;
+        font-weight: 700;
       }
     }
   }

@@ -28,6 +28,7 @@ window.addEventListener("load", function () {
     stepOne.style.display = "none"; // Hide the first ul (step-one)
     stepTwo.style.display = "flex"; // Show the second ul (step-two)
     document.querySelector(".step-title").textContent = "STEP 2";
+    document.querySelector(".step-check").textContent = "Checking Deals";
   }, halfDuration); // Trigger after 4 seconds (halfDuration)
 });
 
