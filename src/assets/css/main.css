@@ -1043,6 +1043,11 @@ button {
     overflow: hidden;
   }
 }
+@media (max-width: 767px) {
+  .scroll-content-wrapper {
+    padding-inline: 15px;
+  }
+}
 
 @media (max-width: 991px) {
   .right-content {
@@ -1602,6 +1607,7 @@ button {
 @media (max-width: 991px) {
   .form-area {
     width: 100%;
+    padding-left: 0;
   }
 }
 .form-area > * {
@@ -1633,6 +1639,7 @@ button {
 @media (max-width: 991px) {
   .form-area .left-form .subtitle {
     font-size: 15px;
+    font-weight: 700;
   }
 }
 .form-area .summery-area {
