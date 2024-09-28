@@ -443,6 +443,9 @@
           @include breakpoint(sm) {
             top: 33px;
           }
+          @include breakpoint(sm) {
+            width: 160px;
+          }
         }
       }
       a {
@@ -508,27 +511,141 @@
 }
 .scroll-tabs {
   margin-left: 35px;
-  margin-top: 90px;
+  padding-top: 90px;
   @include breakpoint(max-xl) {
     margin-left: 20px;
   }
   .line {
     width: 5px;
-    height: 88%;
-    background-color: var(--c-primary);
+    height: 85%;
+    background-color: #d8d8d8;
     margin-inline: auto;
     z-index: -2;
     position: relative;
     @include breakpoint(xl) {
-      height: 82%;
+      height: 85%;
     }
     @include min(1300px) {
       height: 85%;
     }
   }
+  .line-two {
+    width: 5px;
+    height: 85%;
+    background-color: var(--c-primary);
+    margin-inline: auto;
+    z-index: -1;
+    transform: translateY(-100%);
+    position: relative;
+    transition: all 1s linear;
+    @include breakpoint(xl) {
+      height: 85%;
+    }
+  }
   ul {
+    .number {
+      // display: none;
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      @include breakpoint(max-sm) {
+        font-size: 14px;
+      }
+    }
+    .number {
+      width: 66px;
+      height: 66px;
+      background-color: #d8d8d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-inline: auto;
+      // transition: all 0.3s linear;
+      animation: fadeIn 1s linear forwards;
+    }
+    img {
+      display: none;
+      margin-inline: auto;
+      animation: fadeIn 1s linear forwards;
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
     li {
       padding-block: 25px;
+      position: relative;
+      a {
+        b {
+          color: #d8d8d8;
+          transition: all 0.2s linear;
+        }
+      }
+      &:not(:last-child) {
+        &::before {
+          position: absolute;
+          content: "";
+          left: 50%;
+          width: 5px;
+          height: 0;
+          background-color: var(--c-primary);
+          top: 100%;
+          transform: translateX(-50%);
+          z-index: -1;
+          transition: all 1.5s linear;
+          transition-delay: .5s;
+        }
+        &:nth-child(1) {
+          &::before {
+            height: 0px;
+          }
+        }
+        &:nth-child(2) {
+          &::before {
+            height: 0px;
+          }
+        }
+        &:nth-child(3) {
+          &::before {
+            height: 0px;
+          }
+        }
+      }
+      &.active {
+        &:nth-child(1) {
+          &::before {
+            height: 650px !important;
+          }
+        }
+        &:nth-child(2) {
+          &::before {
+            height: 650px !important;
+          }
+        }
+        &:nth-child(3) {
+          &::before {
+            height: 450px !important;
+          }
+        }
+        .number {
+          display: none;
+        }
+        img {
+          display: block;
+        }
+        a {
+          b {
+            color: var(--c-heading);
+            display: block;
+            transition: all 1s linear;
+          }
+        }
+      }
       a {
         text-align: center;
         font-size: 24px;
@@ -559,6 +676,12 @@
     top: 885px;
     left: -10px;
     background-color: white;
+    @include max(1300px) {
+      top: 940px;
+    }
+    @include max(1269px) {
+      top: 1040px;
+    }
     @include breakpoint(max-xl) {
       left: -35px;
       top: 830px;
@@ -572,6 +695,12 @@
     top: 1600px;
     left: -10px;
     background-color: white;
+    @include max(1300px) {
+      top: 1645px;
+    }
+    @include max(1269px) {
+      top: 1745px;
+    }
     @include breakpoint(max-xl) {
       left: -35px;
       top: 1545px;
@@ -585,6 +714,12 @@
     top: 2100px;
     left: -10px;
     background-color: white;
+    @include max(1300px) {
+      top: 2155px;
+    }
+    @include max(1269px) {
+      top: 2255px;
+    }
     @include breakpoint(max-xl) {
       left: -35px;
       top: 2055px;
@@ -685,6 +820,11 @@
       }
       .price {
         margin-top: 8px;
+      }
+      .right {
+        @include breakpoint(max-lg) {
+          padding-right: 13px;
+        }
       }
     }
     .summery {

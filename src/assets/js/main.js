@@ -87,6 +87,15 @@ document.querySelectorAll(".form-control[required]").forEach((input) => {
   });
 });
 
+// Get the current month (0-based, so January is 0, February is 1, etc.)
+var currentMonth = new Date().getMonth();
+
+// Select the dropdown element
+var selectElement = document.getElementById("monthSelect");
+
+// Set the current month as the selected option
+selectElement.selectedIndex = currentMonth;
+
 // Select all product cards
 const productCards = document.querySelectorAll(".product-card");
 
@@ -157,34 +166,8 @@ productCards.forEach((card) => {
   });
 });
 
-// Create an IntersectionObserver with a 100px offset from the bottom of the viewport
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      const liElement = entry.target;
-
-      if (entry.isIntersecting) {
-        // Add the class only when the element enters the viewport
-        liElement.classList.add("in-view");
-      }
-      // No action needed for out-of-view elements,
-      // as we want to keep the class on previously added elements.
-    });
-  },
-  {
-    root: null, // The viewport is the root
-    threshold: 0, // Trigger as soon as any part of the element enters the viewport
-    rootMargin: "0px 0px -100px 0px", // 100px from the bottom of the viewport
-  }
-);
-
-// Target all the <li> elements inside the scroll-tabs
-document.querySelectorAll(".scroll-tabs ul li").forEach((li) => {
-  observer.observe(li); // Start observing each <li> element
-});
-
 // Array of selectors for different item classes
-const targetClasses = ["#shipping-info", "#payment-form", "#order"]; // Add your class selectors here
+const targetClasses = ["#shipping-info", "#payment-form", "#order"];
 
 // Function to get the position from the top of the page for multiple items
 function getDivPositions() {
@@ -194,7 +177,7 @@ function getDivPositions() {
     targetDivs.forEach((targetDiv) => {
       const rect = targetDiv.getBoundingClientRect(); // Get the bounding rectangle of the div
       const rect2 = targetDiv.getBoundingClientRect(); // Get the bounding rectangle of the div
-      const divPositionFromTop = rect.top + window.scrollY - 800; // Calculate the position from the top of the page
+      const divPositionFromTop = rect.top + window.scrollY - 750; // Calculate the position from the top of the page
       const divPositionFromTop2 = rect2.top + window.scrollY + 1850; // Calculate the position from the top of the page
 
       if (divPositionFromTop2 < window.scrollY) {
@@ -204,14 +187,18 @@ function getDivPositions() {
       }
 
       if (window.scrollY > divPositionFromTop) {
-        const targetRef = document.querySelector(targetClass + "-ref"); // Vanilla JS selector for the target-ref class
+        const targetRef = document.querySelector(targetClass + "-ref");
+        const targetRef2 = document.querySelector(targetClass + "-one");
         if (targetRef) {
           targetRef.classList.add("active");
+          targetRef2.classList.add("active");
         }
       } else {
-        const targetRef = document.querySelector(targetClass + "-ref"); // Vanilla JS selector for the target-ref class
+        const targetRef = document.querySelector(targetClass + "-ref");
+        const targetRef2 = document.querySelector(targetClass + "-one");
         if (targetRef) {
           targetRef.classList.remove("active");
+          targetRef2.classList.remove("active");
         }
       }
     });
@@ -272,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Set countdown duration (5 minutes in seconds)
-let countdownDuration = (5 * 60) + 12; // 5 minutes in seconds
+let countdownDuration = 5 * 60 + 12; // 5 minutes in seconds
 
 // Update the timer every second
 const countdownInterval = setInterval(() => {
@@ -296,3 +283,54 @@ const countdownInterval = setInterval(() => {
     document.getElementById("time").textContent = "00 : 00"; // Final display
   }
 }, 1000); // Update every second
+
+// Scroll tab JS
+const targetClasses2 = ["#shipping-info", "#payment-form", "#order"];
+const targetSelectors = ["#shipping-info-one", "#payment-form-one", "#order-one"];
+
+// Function to get the distance from .scroll-tabs to each targetClass
+function getDivPositions2() {
+  // Get the position of .scroll-tabs from the top of the page
+  const scrollTabs = document.querySelector('.scroll-tabs');
+  
+  if (scrollTabs) {
+    const scrollTabsRect = scrollTabs.getBoundingClientRect();
+    const scrollTabsPositionFromTop = scrollTabsRect.top + window.scrollY;
+
+    // Loop through each target class and its corresponding target selector
+    targetClasses2.forEach((targetClass, index) => {
+      const targetDiv = document.querySelector(targetClass); // Select the current target div
+      const correspondingSelector = targetSelectors[index]; // Get the corresponding selector for each class
+
+      if (targetDiv && correspondingSelector) {
+        // Get the position of the target div from the top of the page
+        const targetRect = targetDiv.getBoundingClientRect();
+        const targetPositionFromTop = targetRect.top + window.scrollY;
+
+        // Calculate the distance from .scroll-tabs to the target div
+        const distanceFromScrollTabs = Math.abs(targetPositionFromTop - scrollTabsPositionFromTop);
+
+        // Apply the distance as the top style to the corresponding div (e.g., .shipping-info-one)
+        const correspondingDiv = document.querySelector(correspondingSelector);
+        if (correspondingDiv) {
+          correspondingDiv.style.top = distanceFromScrollTabs - 20 + "px";
+        }
+        
+        // Add or remove "active" class based on scroll position
+        if (window.scrollY > targetPositionFromTop) {
+          targetDiv.classList.add("active");
+          // document.querySelector('.line-two').style.height = window.scrollY - 20 + "px";
+        } else {
+          targetDiv.classList.remove("active");
+        }
+      }
+    });
+  }
+}
+
+// Call the function to get the positions
+getDivPositions2();
+
+// Optionally, update the positions when the user scrolls
+window.addEventListener("scroll", getDivPositions2);
+

@@ -1439,6 +1439,11 @@ button {
     top: 33px;
   }
 }
+@media (min-width: 576px) {
+  .scroll-tabs-two ul li:not(:last-child)::before {
+    width: 160px;
+  }
+}
 .scroll-tabs-two ul li a {
   display: flex;
   flex-direction: column;
@@ -1505,7 +1510,7 @@ button {
 
 .scroll-tabs {
   margin-left: 35px;
-  margin-top: 90px;
+  padding-top: 90px;
 }
 @media (max-width: 1199px) {
   .scroll-tabs {
@@ -1514,15 +1519,15 @@ button {
 }
 .scroll-tabs .line {
   width: 5px;
-  height: 88%;
-  background-color: var(--c-primary);
+  height: 85%;
+  background-color: #d8d8d8;
   margin-inline: auto;
   z-index: -2;
   position: relative;
 }
 @media (min-width: 1200px) {
   .scroll-tabs .line {
-    height: 82%;
+    height: 85%;
   }
 }
 @media (min-width: 1300px) {
@@ -1530,8 +1535,104 @@ button {
     height: 85%;
   }
 }
+.scroll-tabs .line-two {
+  width: 5px;
+  height: 85%;
+  background-color: var(--c-primary);
+  margin-inline: auto;
+  z-index: -1;
+  transform: translateY(-100%);
+  position: relative;
+  transition: all 1s linear;
+}
+@media (min-width: 1200px) {
+  .scroll-tabs .line-two {
+    height: 85%;
+  }
+}
+.scroll-tabs ul .number {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+@media (max-width: 575px) {
+  .scroll-tabs ul .number {
+    font-size: 14px;
+  }
+}
+.scroll-tabs ul .number {
+  width: 66px;
+  height: 66px;
+  background-color: #d8d8d8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-inline: auto;
+  animation: fadeIn 1s linear forwards;
+}
+.scroll-tabs ul img {
+  display: none;
+  margin-inline: auto;
+  animation: fadeIn 1s linear forwards;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .scroll-tabs ul li {
   padding-block: 25px;
+  position: relative;
+}
+.scroll-tabs ul li a b {
+  color: #d8d8d8;
+  transition: all 0.2s linear;
+}
+.scroll-tabs ul li:not(:last-child)::before {
+  position: absolute;
+  content: "";
+  left: 50%;
+  width: 5px;
+  height: 0;
+  background-color: var(--c-primary);
+  top: 100%;
+  transform: translateX(-50%);
+  z-index: -1;
+  transition: all 1.5s linear;
+  transition-delay: 0.5s;
+}
+.scroll-tabs ul li:not(:last-child):nth-child(1)::before {
+  height: 0px;
+}
+.scroll-tabs ul li:not(:last-child):nth-child(2)::before {
+  height: 0px;
+}
+.scroll-tabs ul li:not(:last-child):nth-child(3)::before {
+  height: 0px;
+}
+.scroll-tabs ul li.active:nth-child(1)::before {
+  height: 650px !important;
+}
+.scroll-tabs ul li.active:nth-child(2)::before {
+  height: 650px !important;
+}
+.scroll-tabs ul li.active:nth-child(3)::before {
+  height: 450px !important;
+}
+.scroll-tabs ul li.active .number {
+  display: none;
+}
+.scroll-tabs ul li.active img {
+  display: block;
+}
+.scroll-tabs ul li.active a b {
+  color: var(--c-heading);
+  display: block;
+  transition: all 1s linear;
 }
 .scroll-tabs ul li a {
   text-align: center;
@@ -1565,6 +1666,16 @@ button {
   left: -10px;
   background-color: white;
 }
+@media (max-width: 1300px) {
+  .scroll-tabs .shipping-info {
+    top: 940px;
+  }
+}
+@media (max-width: 1269px) {
+  .scroll-tabs .shipping-info {
+    top: 1040px;
+  }
+}
 @media (max-width: 1199px) {
   .scroll-tabs .shipping-info {
     left: -35px;
@@ -1580,6 +1691,16 @@ button {
   left: -10px;
   background-color: white;
 }
+@media (max-width: 1300px) {
+  .scroll-tabs .payment {
+    top: 1645px;
+  }
+}
+@media (max-width: 1269px) {
+  .scroll-tabs .payment {
+    top: 1745px;
+  }
+}
 @media (max-width: 1199px) {
   .scroll-tabs .payment {
     left: -35px;
@@ -1594,6 +1715,16 @@ button {
   top: 2100px;
   left: -10px;
   background-color: white;
+}
+@media (max-width: 1300px) {
+  .scroll-tabs .order {
+    top: 2155px;
+  }
+}
+@media (max-width: 1269px) {
+  .scroll-tabs .order {
+    top: 2255px;
+  }
 }
 @media (max-width: 1199px) {
   .scroll-tabs .order {
@@ -1708,6 +1839,11 @@ button {
 }
 .form-area .summery-area .product-item .price {
   margin-top: 8px;
+}
+@media (max-width: 991px) {
+  .form-area .summery-area .product-item .right {
+    padding-right: 13px;
+  }
 }
 .form-area .summery-area .summery {
   display: flex;
