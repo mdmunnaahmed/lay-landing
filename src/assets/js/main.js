@@ -76,7 +76,7 @@ closeModal.addEventListener("click", () => {
   toggleModal(); // Close the modal when clicking the close button
 });
 
-document.querySelectorAll(".form-control").forEach((input) => {
+document.querySelectorAll(".form-control[required]").forEach((input) => {
   input.addEventListener("blur", function () {
     const formGroup = this.closest(".form-group");
     if (!this.value.trim()) {
