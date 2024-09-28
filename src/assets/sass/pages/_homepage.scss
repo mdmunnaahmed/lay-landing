@@ -519,6 +519,12 @@
     margin-inline: auto;
     z-index: -2;
     position: relative;
+    @include breakpoint(xl) {
+      height: 82%;
+    }
+    @include min(1300px) {
+      height: 85%;
+    }
   }
   ul {
     li {

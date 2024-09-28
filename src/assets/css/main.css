@@ -1520,6 +1520,16 @@ button {
   z-index: -2;
   position: relative;
 }
+@media (min-width: 1200px) {
+  .scroll-tabs .line {
+    height: 82%;
+  }
+}
+@media (min-width: 1300px) {
+  .scroll-tabs .line {
+    height: 85%;
+  }
+}
 .scroll-tabs ul li {
   padding-block: 25px;
 }
