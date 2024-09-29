@@ -1108,7 +1108,7 @@ button {
 .product-card {
   height: -moz-fit-content;
   height: fit-content;
-  padding: 36px 40px 40px;
+  padding: 36px 35px 40px;
   border-radius: 5px;
   text-align: center;
   box-shadow: 0 3px 9px 2px rgba(0, 0, 0, 0.12);
@@ -1129,16 +1129,18 @@ button {
   }
 }
 .product-card.best-deal-card {
-  margin-top: -53px;
+  margin-top: -56px;
   position: relative;
   background-image: linear-gradient(white, white), linear-gradient(180deg, #bd8f2f 0%, #f9f1b2 66%, #bd8f2f 100%);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  border: 6px solid transparent;
+  border: 5px solid transparent;
+  padding-inline: 30px;
 }
 @media (max-width: 1199px) {
   .product-card.best-deal-card {
     padding-inline: 11px;
+    margin-top: -53px;
   }
 }
 @media (max-width: 991px) {
@@ -1153,8 +1155,14 @@ button {
   background-color: #fffef4;
 }
 .product-card.active.best-deal-card {
+  padding-inline: 35px;
   background: #fffef4;
   border: 0;
+}
+@media (min-width: 1200px) {
+  .product-card.active.best-deal-card {
+    padding-bottom: 46px;
+  }
 }
 @media (max-width: 1199px) {
   .product-card.active.best-deal-card {
@@ -1164,9 +1172,8 @@ button {
 .product-card.active.best-deal-card .best-deal {
   border-radius: 5px 5px 0 0;
   background-color: var(--c-base);
-  padding-block: 22px;
+  padding-block: 20px;
   padding-top: 24px;
-  margin-bottom: 30px;
 }
 @media (max-width: 1199px) {
   .product-card.active.best-deal-card .best-deal {
@@ -1196,14 +1203,14 @@ button {
 .product-card .best-deal {
   background-color: #c49b3f;
   margin-top: -36px;
-  margin-left: -40px;
-  margin-right: -40px;
+  margin-left: -30px;
+  margin-right: -30px;
   padding: 20px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  margin-bottom: 23px;
+  margin-bottom: 28px;
   line-height: 1.1;
 }
 @media (max-width: 1199px) {
@@ -1347,8 +1354,8 @@ button {
 }
 .product-card .selling-out-area {
   background-color: #fff2e0;
-  margin-left: -33px;
-  margin-right: -33px;
+  margin-left: -28px;
+  margin-right: -28px;
   margin-bottom: -34px;
   margin-top: 30px;
   padding: 15px 36px;
