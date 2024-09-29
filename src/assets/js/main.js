@@ -291,8 +291,8 @@ const targetSelectors = ["#shipping-info-one", "#payment-form-one", "#order-one"
 // Function to get the distance from .scroll-tabs to each targetClass
 function getDivPositions2() {
   // Get the position of .scroll-tabs from the top of the page
-  const scrollTabs = document.querySelector('.scroll-tabs');
-  
+  const scrollTabs = document.querySelector(".scroll-tabs");
+
   if (scrollTabs) {
     const scrollTabsRect = scrollTabs.getBoundingClientRect();
     const scrollTabsPositionFromTop = scrollTabsRect.top + window.scrollY;
@@ -315,7 +315,7 @@ function getDivPositions2() {
         if (correspondingDiv) {
           correspondingDiv.style.top = distanceFromScrollTabs - 20 + "px";
         }
-        
+
         // Add or remove "active" class based on scroll position
         if (window.scrollY > targetPositionFromTop) {
           targetDiv.classList.add("active");
@@ -333,4 +333,3 @@ getDivPositions2();
 
 // Optionally, update the positions when the user scrolls
 window.addEventListener("scroll", getDivPositions2);
-
