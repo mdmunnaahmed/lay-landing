@@ -82,6 +82,15 @@
     font-size: 0.8rem;
   }
 }
+select {
+  @include breakpoint(max-lg) {
+    background-image: url("./../images/angle-both.svg");
+    background-repeat: no-repeat;
+    background-size: 9px;
+    background-position: right 0rem top 50%;
+    -webkit-appearance: none;
+  }
+}
 
 .question-mark-modal {
   position: fixed;

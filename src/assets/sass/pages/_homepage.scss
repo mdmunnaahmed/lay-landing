@@ -598,7 +598,7 @@
           transform: translateX(-50%);
           z-index: -1;
           transition: all 1.5s linear;
-          transition-delay: .5s;
+          transition-delay: 0.5s;
         }
         &:nth-child(1) {
           &::before {
