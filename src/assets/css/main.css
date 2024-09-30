@@ -279,9 +279,9 @@ button {
 
 @media (max-width: 991px) {
   select {
-    background-image: url("./../images/angle-both.svg");
+    background-image: url("./../images/angle-down.svg");
     background-repeat: no-repeat;
-    background-size: 9px;
+    background-size: 10px;
     background-position: right 0rem top 50%;
     -webkit-appearance: none;
   }
