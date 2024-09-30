@@ -107,13 +107,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Allow only numeric input and format with spaces
   creditCardInput.addEventListener("input", function () {
     // Replace any non-numeric characters and format with spaces
-    let value = this.value.replace(/\D/g, ''); // Keep only digits
+    let value = this.value.replace(/\D/g, ""); // Keep only digits
     if (value.length > 16) {
       value = value.slice(0, 16); // Truncate to the first 16 digits
     }
 
     // Add spaces after every 4 digits
-    this.value = value.replace(/(.{4})/g, '$1 ').trim(); // Add space and trim the end
+    this.value = value.replace(/(.{4})/g, "$1 ").trim(); // Add space and trim the end
 
     // Reset error messages as user types
     errorDiv.style.display = "none";
@@ -124,19 +124,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Validate on blur
   creditCardInput.addEventListener("blur", function () {
-    const value = this.value.replace(/\s/g, ''); // Remove spaces for validation
+    const value = this.value.replace(/\s/g, ""); // Remove spaces for validation
 
     // Check if the input is empty
     if (!value) {
       requiredDiv.style.display = "block"; // Show required error message
       formGroup.classList.add("error");
-    } 
+    }
     // Check for a valid credit card number (basic check)
     else if (!/^\d{13,16}$/.test(value)) {
       errorDiv.style.display = "block"; // Show credit card error message
       formGroup.classList.add("card-error");
-    } 
-    else {
+    } else {
       formGroup.classList.remove("error");
       formGroup.classList.remove("card-error");
       errorDiv.style.display = "none"; // Hide credit card error message
@@ -149,7 +148,7 @@ document.querySelectorAll("#zip").forEach((input) => {
   // Allow only numeric input and limit to 4 digits
   input.addEventListener("input", function () {
     // Replace any non-numeric characters
-    this.value = this.value.replace(/\D/g, ''); // Keep only digits
+    this.value = this.value.replace(/\D/g, ""); // Keep only digits
 
     // Limit the length to 4 digits
     if (this.value.length > 6) {
@@ -166,13 +165,12 @@ document.querySelectorAll("#zip").forEach((input) => {
     if (!this.value.trim()) {
       formGroup.classList.add("required");
       errorDiv.style.display = "none"; // Hide zip error
-    } 
+    }
     // Check if the input is less than 3 digits
     else if (this.value.trim().length < 6) {
       formGroup.classList.add("zip");
       errorDiv.style.display = "block"; // Show zip error
-    } 
-    else {
+    } else {
       formGroup.classList.remove("required");
       formGroup.classList.remove("zip");
       errorDiv.style.display = "none"; // Hide zip error
@@ -184,7 +182,7 @@ document.querySelectorAll("#cvv").forEach((input) => {
   // Allow only numeric input and limit to 4 digits
   input.addEventListener("input", function () {
     // Replace any non-numeric characters
-    this.value = this.value.replace(/\D/g, ''); // Keep only digits
+    this.value = this.value.replace(/\D/g, ""); // Keep only digits
 
     // Limit the length to 4 digits
     if (this.value.length > 4) {
@@ -201,20 +199,18 @@ document.querySelectorAll("#cvv").forEach((input) => {
     if (!this.value.trim()) {
       formGroup.classList.add("required");
       errorDiv.style.display = "none"; // Hide CVV error
-    } 
+    }
     // Check if the input is less than 3 digits
     else if (this.value.trim().length < 3) {
       formGroup.classList.add("cvv");
       errorDiv.style.display = "block"; // Show CVV error
-    } 
-    else {
+    } else {
       formGroup.classList.remove("required");
       formGroup.classList.remove("cvv");
       errorDiv.style.display = "none"; // Hide CVV error
     }
   });
 });
-
 
 // Get the current month (0-based, so January is 0, February is 1, etc.)
 var currentMonth = new Date().getMonth();
@@ -463,3 +459,30 @@ getDivPositions2();
 // Optionally, update the positions when the user scrolls
 window.addEventListener("scroll", getDivPositions2);
 
+document.getElementById("country-select").addEventListener("change", function () {
+  const country = this.value;
+  const usaStates = document.getElementById("usa-states");
+  const canadaStates = document.getElementById("canada-states");
+  const blank = document.getElementById("blank-select");
+
+  if (country === "USA") {
+    usaStates.style.display = "block";
+    canadaStates.style.display = "none";
+    blank.style.display = "none";
+    usaStates.required = true;
+    canadaStates.required = false;
+  } else if (country === "Canada") {
+    usaStates.style.display = "none";
+    blank.style.display = "none";
+    canadaStates.style.display = "block";
+    usaStates.required = false;
+    canadaStates.required = true;
+  } else {
+    blank.style.display = "block";
+    usaStates.style.display = "none";
+    canadaStates.style.display = "none";
+    usaStates.required = false;
+    canadaStates.required = false;
+    
+  }
+});
