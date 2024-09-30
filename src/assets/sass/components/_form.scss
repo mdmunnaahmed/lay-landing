@@ -41,8 +41,14 @@
       display: block;
     }
   }
+  &.zip {
+    .card-error {
+      display: block;
+    }
+  }
   .error,
   .card-error,
+  .zip-error,
   .cvv-error {
     color: var(--c-danger);
     font-size: 13px;

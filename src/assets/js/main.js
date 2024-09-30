@@ -147,37 +147,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-document.querySelectorAll("#cvv").forEach((input) => {
+document.querySelectorAll("#zip").forEach((input) => {
   // Allow only numeric input and limit to 4 digits
   input.addEventListener("input", function () {
     // Replace any non-numeric characters
     this.value = this.value.replace(/\D/g, ''); // Keep only digits
 
     // Limit the length to 4 digits
-    if (this.value.length > 4) {
-      this.value = this.value.slice(0, 4); // Truncate to the first 4 digits
+    if (this.value.length > 5) {
+      this.value = this.value.slice(0, 5); // Truncate to the first 4 digits
     }
   });
 
   // Validate on blur
   input.addEventListener("blur", function () {
     const formGroup = this.closest(".form-group");
-    const errorDiv = formGroup.querySelector(".cvv-error");
+    const errorDiv = formGroup.querySelector(".zip-error");
 
     // Check if the input is empty
     if (!this.value.trim()) {
       formGroup.classList.add("required");
-      errorDiv.style.display = "none"; // Hide CVV error
+      errorDiv.style.display = "none"; // Hide zip error
     } 
     // Check if the input is less than 3 digits
-    else if (this.value.trim().length < 3) {
-      formGroup.classList.add("cvv");
-      errorDiv.style.display = "block"; // Show CVV error
+    else if (this.value.trim().length < 4) {
+      formGroup.classList.add("zip");
+      errorDiv.style.display = "block"; // Show zip error
     } 
     else {
       formGroup.classList.remove("required");
-      formGroup.classList.remove("cvv");
-      errorDiv.style.display = "none"; // Hide CVV error
+      formGroup.classList.remove("zip");
+      errorDiv.style.display = "none"; // Hide zip error
     }
   });
 });
