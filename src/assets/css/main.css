@@ -1635,7 +1635,7 @@ button {
   height: 750px !important;
 }
 .scroll-tabs ul li.active:nth-child(2)::before {
-  height: 650px !important;
+  height: 770px !important;
 }
 .scroll-tabs ul li.active:nth-child(3)::before {
   height: 450px !important;
