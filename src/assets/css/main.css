@@ -214,7 +214,15 @@ button {
 .form-group.required .error {
   display: block;
 }
-.form-group .error {
+.form-group.cvv .cvv-error {
+  display: block;
+}
+.form-group.card .card-error {
+  display: block;
+}
+.form-group .error,
+.form-group .card-error,
+.form-group .cvv-error {
   color: var(--c-danger);
   font-size: 13px;
   display: none;
@@ -327,6 +335,32 @@ button {
   position: absolute !important;
   right: 15px;
   top: 20px;
+}
+
+#cvv::-webkit-outer-spin-button,
+#cvv::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+#cvv[type=number] {
+  -moz-appearance: textfield;
+}
+
+#aptSuite ~ .form-label {
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+#aptSuite:focus ~ .form-label {
+  transform: translateY(-115%) !important;
+  font-size: 0.8rem !important;
+}
+
+.form-group.has-value .form-label {
+  transform: translateY(-115%) !important;
+  font-size: 0.8rem !important;
 }
 
 .feature-section {

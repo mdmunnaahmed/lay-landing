@@ -87,6 +87,103 @@ document.querySelectorAll(".form-control[required]").forEach((input) => {
   });
 });
 
+document.querySelectorAll("#aptSuite").forEach((input) => {
+  input.addEventListener("blur", function () {
+    const formGroup = this.closest(".form-group");
+    if (this.value.trim().length) {
+      formGroup.classList.add("has-value");
+    } else {
+      formGroup.classList.remove("has-value");
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const creditCardInput = document.getElementById("creditCard");
+  const formGroup = creditCardInput.closest(".form-group");
+  const errorDiv = formGroup.querySelector(".card-error");
+  const requiredDiv = formGroup.querySelector(".error");
+
+  // Allow only numeric input and format with spaces
+  creditCardInput.addEventListener("input", function () {
+    // Replace any non-numeric characters and format with spaces
+    let value = this.value.replace(/\D/g, ''); // Keep only digits
+    if (value.length > 16) {
+      value = value.slice(0, 16); // Truncate to the first 16 digits
+    }
+
+    // Add spaces after every 4 digits
+    this.value = value.replace(/(.{4})/g, '$1 ').trim(); // Add space and trim the end
+
+    // Reset error messages as user types
+    errorDiv.style.display = "none";
+    requiredDiv.style.display = "none";
+    formGroup.classList.remove("error");
+    formGroup.classList.remove("card-error");
+  });
+
+  // Validate on blur
+  creditCardInput.addEventListener("blur", function () {
+    const value = this.value.replace(/\s/g, ''); // Remove spaces for validation
+
+    // Check if the input is empty
+    if (!value) {
+      requiredDiv.style.display = "block"; // Show required error message
+      formGroup.classList.add("error");
+    } 
+    // Check for a valid credit card number (basic check)
+    else if (!/^\d{13,16}$/.test(value)) {
+      errorDiv.style.display = "block"; // Show credit card error message
+      formGroup.classList.add("card-error");
+    } 
+    else {
+      formGroup.classList.remove("error");
+      formGroup.classList.remove("card-error");
+      errorDiv.style.display = "none"; // Hide credit card error message
+      requiredDiv.style.display = "none"; // Hide required message
+    }
+  });
+});
+
+
+
+document.querySelectorAll("#cvv").forEach((input) => {
+  // Allow only numeric input and limit to 4 digits
+  input.addEventListener("input", function () {
+    // Replace any non-numeric characters
+    this.value = this.value.replace(/\D/g, ''); // Keep only digits
+
+    // Limit the length to 4 digits
+    if (this.value.length > 4) {
+      this.value = this.value.slice(0, 4); // Truncate to the first 4 digits
+    }
+  });
+
+  // Validate on blur
+  input.addEventListener("blur", function () {
+    const formGroup = this.closest(".form-group");
+    const errorDiv = formGroup.querySelector(".cvv-error");
+
+    // Check if the input is empty
+    if (!this.value.trim()) {
+      formGroup.classList.add("required");
+      errorDiv.style.display = "none"; // Hide CVV error
+    } 
+    // Check if the input is less than 3 digits
+    else if (this.value.trim().length < 3) {
+      formGroup.classList.add("cvv");
+      errorDiv.style.display = "block"; // Show CVV error
+    } 
+    else {
+      formGroup.classList.remove("required");
+      formGroup.classList.remove("cvv");
+      errorDiv.style.display = "none"; // Hide CVV error
+    }
+  });
+});
+
+
+
 // Get the current month (0-based, so January is 0, February is 1, etc.)
 var currentMonth = new Date().getMonth();
 
@@ -333,3 +430,4 @@ getDivPositions2();
 
 // Optionally, update the positions when the user scrolls
 window.addEventListener("scroll", getDivPositions2);
+

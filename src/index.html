@@ -16,7 +16,7 @@
 
 <body> 
 
-<div class="main-loading-page-wrapper">
+<!-- <div class="main-loading-page-wrapper">
   <div class="top-logo">
     <img src="assets/images/zappify-logo-new.png.webp" alt="icon" />
   </div>
@@ -71,7 +71,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="container">
   <!-- banner section start -->
@@ -264,7 +264,7 @@
               </div>
               <div class="form-group">
                 <div class="form-input">
-                  <input class="form-control" type="text" />
+                  <input class="form-control" id="aptSuite" type="text"/>
                   <label class="form-label" for="">Apt / Suite / Other</label>
                 </div>
                 <div class="error">This field is required.</div>
@@ -359,15 +359,16 @@
             <form action="">
               <div class="form-group">
                 <div class="form-input">
-                  <input class="form-control" type="text" required />
+                  <input class="form-control" id="creditCard" type="text" required />
                   <label class="form-label" for="">Credit Card #</label>
                   <img src="assets/images/padlock.png" alt="lock icon" />
                 </div>
                 <div class="error">This field is required.</div>
+                <div class="card-error">Invalid credit card number.</div>
               </div>
               <div class="form-group">
                 <div class="form-input">
-                  <input class="form-control" type="text" required />
+                  <input class="form-control" max="4" id="cvv" type="text" required />
                   <label class="form-label" for="">CVV Code</label>
                   <a href="#0" class="question-modal-toggle"><img src="assets/images/question-mark.png" alt="question mark" class="question-mark" /></a>
                   <!-- add active class to question-mark-modal to toggle the question mark info -->
@@ -383,6 +384,7 @@
                   </div>
                 </div>
                 <div class="error">This field is required.</div>
+                <div class="cvv-error">Please enter at least 3 characters.</div>
               </div>
               <div class="expiration-wrapper">
                 <div class="text">Expiration</div>
