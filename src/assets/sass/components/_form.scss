@@ -32,16 +32,28 @@
     }
   }
   &.cvv {
+    .form-input {
+      border-color: var(--c-danger);
+      background-color: #f9ecea;
+    }
     .cvv-error {
       display: block;
     }
   }
   &.card {
+    .form-input {
+      border-color: var(--c-danger);
+      background-color: #f9ecea;
+    }
     .card-error {
       display: block;
     }
   }
   &.zip {
+    .form-input {
+      border-color: var(--c-danger);
+      background-color: #f9ecea;
+    }
     .card-error {
       display: block;
     }
@@ -49,7 +61,8 @@
   .error,
   .card-error,
   .zip-error,
-  .cvv-error {
+  .cvv-error,
+  .email-error {
     color: var(--c-danger);
     font-size: 13px;
     display: none;

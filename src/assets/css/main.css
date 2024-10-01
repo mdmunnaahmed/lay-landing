@@ -214,11 +214,23 @@ button {
 .form-group.required .error {
   display: block;
 }
+.form-group.cvv .form-input {
+  border-color: var(--c-danger);
+  background-color: #f9ecea;
+}
 .form-group.cvv .cvv-error {
   display: block;
 }
+.form-group.card .form-input {
+  border-color: var(--c-danger);
+  background-color: #f9ecea;
+}
 .form-group.card .card-error {
   display: block;
+}
+.form-group.zip .form-input {
+  border-color: var(--c-danger);
+  background-color: #f9ecea;
 }
 .form-group.zip .card-error {
   display: block;
@@ -226,7 +238,8 @@ button {
 .form-group .error,
 .form-group .card-error,
 .form-group .zip-error,
-.form-group .cvv-error {
+.form-group .cvv-error,
+.form-group .email-error {
   color: var(--c-danger);
   font-size: 13px;
   display: none;

@@ -134,10 +134,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check for a valid credit card number (basic check)
     else if (!/^\d{13,16}$/.test(value)) {
       errorDiv.style.display = "block"; // Show credit card error message
-      formGroup.classList.add("card-error");
+      formGroup.classList.add("card");
     } else {
       formGroup.classList.remove("error");
-      formGroup.classList.remove("card-error");
+      formGroup.classList.remove("card");
       errorDiv.style.display = "none"; // Hide credit card error message
       requiredDiv.style.display = "none"; // Hide required message
     }
@@ -483,6 +483,26 @@ document.getElementById("country-select").addEventListener("change", function ()
     canadaStates.style.display = "none";
     usaStates.required = false;
     canadaStates.required = false;
-    
+  }
+});
+
+document.getElementById("email").addEventListener("blur", function () {
+  const emailInput = this.value;
+  const errorMessage = document.getElementById("email-error");
+
+  // Regular expression for basic email validation
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (emailInput === "") {
+    errorMessage.textContent = "This field is required.";
+    errorMessage.style.display = "block";
+    this.closest(".form-group").classList.add("required");
+  } else if (!emailPattern.test(emailInput)) {
+    errorMessage.textContent = "Please enter a valid email address.";
+    errorMessage.style.display = "block";
+    this.closest(".form-group").classList.add("required");
+  } else {
+    errorMessage.style.display = "none";
+    this.closest(".form-group").classList.remove("required");
   }
 });
