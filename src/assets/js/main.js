@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
       formGroup.classList.add("error");
     }
     // Check for a valid credit card number (basic check)
-    else if (!/^\d{13,16}$/.test(value)) {
+    else if (!/^\d{16,16}$/.test(value)) {
       errorDiv.style.display = "block"; // Show credit card error message
       formGroup.classList.add("card");
     } else {
