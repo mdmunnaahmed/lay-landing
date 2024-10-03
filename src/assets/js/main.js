@@ -138,21 +138,18 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       formGroup.classList.remove("error");
       formGroup.classList.remove("card");
-      errorDiv.style.display = "none"; // Hide credit card error message
-      requiredDiv.style.display = "none"; // Hide required message
+      errorDiv.style.display = "none";
+      requiredDiv.style.display = "none";
     }
   });
 });
 
 document.querySelectorAll("#zip").forEach((input) => {
-  // Allow only numeric input and limit to 4 digits
   input.addEventListener("input", function () {
-    // Replace any non-numeric characters
-    this.value = this.value.replace(/\D/g, ""); // Keep only digits
+    this.value = this.value.replace(/\D/g, "");
 
-    // Limit the length to 4 digits
-    if (this.value.length > 6) {
-      this.value = this.value.slice(0, 6); // Truncate to the first 4 digits
+    if (this.value.length > 5) {
+      this.value = this.value.slice(0, 5);
     }
   });
 
@@ -164,16 +161,16 @@ document.querySelectorAll("#zip").forEach((input) => {
     // Check if the input is empty
     if (!this.value.trim()) {
       formGroup.classList.add("required");
-      errorDiv.style.display = "none"; // Hide zip error
+      errorDiv.style.display = "none";
     }
     // Check if the input is less than 3 digits
-    else if (this.value.trim().length < 6) {
+    else if (this.value.trim().length < 5) {
       formGroup.classList.add("zip");
-      errorDiv.style.display = "block"; // Show zip error
+      errorDiv.style.display = "block";
     } else {
       formGroup.classList.remove("required");
       formGroup.classList.remove("zip");
-      errorDiv.style.display = "none"; // Hide zip error
+      errorDiv.style.display = "none";
     }
   });
 });
@@ -186,7 +183,7 @@ document.querySelectorAll("#cvv").forEach((input) => {
 
     // Limit the length to 4 digits
     if (this.value.length > 4) {
-      this.value = this.value.slice(0, 4); // Truncate to the first 4 digits
+      this.value = this.value.slice(0, 4);
     }
   });
 
