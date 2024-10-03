@@ -104,16 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const errorDiv = formGroup.querySelector(".card-error");
   const requiredDiv = formGroup.querySelector(".error");
 
-  // Allow only numeric input and format with spaces
+  // Allow only numeric input and format with hyphens
   creditCardInput.addEventListener("input", function () {
-    // Replace any non-numeric characters and format with spaces
     let value = this.value.replace(/\D/g, ""); // Keep only digits
     if (value.length > 16) {
       value = value.slice(0, 16); // Truncate to the first 16 digits
     }
 
-    // Add spaces after every 4 digits
-    this.value = value.replace(/(.{4})/g, "$1 ").trim(); // Add space and trim the end
+    // Add hyphen after every 4 digits
+    let formattedValue = value.replace(/(.{4})/g, "$1-").trim();
+
+    // Remove trailing hyphen if present (after trimming)
+    if (formattedValue.endsWith('-')) {
+      formattedValue = formattedValue.slice(0, -1);
+    }
+
+    this.value = formattedValue; // Update the input value
 
     // Reset error messages as user types
     errorDiv.style.display = "none";
@@ -122,9 +128,20 @@ document.addEventListener("DOMContentLoaded", function () {
     formGroup.classList.remove("card-error");
   });
 
+  // Handle backspace behavior correctly
+  creditCardInput.addEventListener("keydown", function (e) {
+    let value = this.value.replace(/\D/g, ""); // Only digits
+
+    // If the last character is a hyphen and backspace is pressed
+    if (e.key === "Backspace" && this.value.endsWith("-")) {
+      e.preventDefault(); // Prevent the default backspace action
+      this.value = this.value.slice(0, -1); // Remove the last hyphen manually
+    }
+  });
+
   // Validate on blur
   creditCardInput.addEventListener("blur", function () {
-    const value = this.value.replace(/\s/g, ""); // Remove spaces for validation
+    const value = this.value.replace(/-/g, ""); // Remove hyphens for validation
 
     // Check if the input is empty
     if (!value) {
@@ -132,17 +149,19 @@ document.addEventListener("DOMContentLoaded", function () {
       formGroup.classList.add("error");
     }
     // Check for a valid credit card number (basic check)
-    else if (!/^\d{16,16}$/.test(value)) {
+    else if (!/^\d{16}$/.test(value)) {
       errorDiv.style.display = "block"; // Show credit card error message
-      formGroup.classList.add("card");
+      formGroup.classList.add("card-error");
     } else {
       formGroup.classList.remove("error");
-      formGroup.classList.remove("card");
+      formGroup.classList.remove("card-error");
       errorDiv.style.display = "none";
       requiredDiv.style.display = "none";
     }
   });
 });
+
+
 
 document.querySelectorAll("#zip").forEach((input) => {
   input.addEventListener("input", function () {
