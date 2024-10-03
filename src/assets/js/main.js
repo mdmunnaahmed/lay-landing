@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let formattedValue = value.replace(/(.{4})/g, "$1-").trim();
 
     // Remove trailing hyphen if present (after trimming)
-    if (formattedValue.endsWith('-')) {
+    if (formattedValue.endsWith("-")) {
       formattedValue = formattedValue.slice(0, -1);
     }
 
@@ -161,35 +161,93 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// document.querySelectorAll("#zip").forEach((input) => {
+//   input.addEventListener("input", function () {
+//     this.value = this.value.replace(/\D/g, "");
 
+//     if (this.value.length > 5) {
+//       this.value = this.value.slice(0, 5);
+//     }
+//   });
 
+//   // Validate on blur
+//   input.addEventListener("blur", function () {
+//     const formGroup = this.closest(".form-group");
+//     const errorDiv = formGroup.querySelector(".zip-error");
+
+//     // Check if the input is empty
+//     if (!this.value.trim()) {
+//       formGroup.classList.add("required");
+//       errorDiv.style.display = "none";
+//     }
+//     // Check if the input is less than 3 digits
+//     else if (this.value.trim().length < 5) {
+//       formGroup.classList.add("zip");
+//       errorDiv.style.display = "block";
+//     } else {
+//       formGroup.classList.remove("required");
+//       formGroup.classList.remove("zip");
+//       errorDiv.style.display = "none";
+//     }
+//   });
+// });
+
+// Handle ZIP code validation based on selected country
 document.querySelectorAll("#zip").forEach((input) => {
   input.addEventListener("input", function () {
-    this.value = this.value.replace(/\D/g, "");
+    const country = document.getElementById("country-select").value;
+    let value = this.value.replace(/\s/g, "").toUpperCase(); // Remove spaces and make uppercase
 
-    if (this.value.length > 5) {
-      this.value = this.value.slice(0, 5);
+    if (country === "USA") {
+      // USA ZIP code validation (5 digits only)
+      value = value.replace(/\D/g, ""); // Allow only digits for USA
+      if (value.length > 5) {
+        value = value.slice(0, 5); // Truncate to the first 5 digits
+      }
+    } else if (country === "Canada") {
+      // Canadian Postal Code validation (A1A 1A1 format)
+      value = value.replace(/[^A-Z0-9]/g, ""); // Remove everything except alphanumeric characters
+      if (value.length > 6) {
+        value = value.slice(0, 6); // Limit to 6 characters without spaces
+      }
+
+      // Add space after the third character (to format like A1A 1A1)
+      if (value.length > 3) {
+        value = value.slice(0, 3) + " " + value.slice(3);
+      }
     }
-  });
 
+    this.value = value; // Update input value
+  });
   // Validate on blur
   input.addEventListener("blur", function () {
+    const country = document.getElementById("country-select").value;
     const formGroup = this.closest(".form-group");
     const errorDiv = formGroup.querySelector(".zip-error");
 
+    const value = this.value.replace(/\s/g, ""); // Remove spaces for validation
+
     // Check if the input is empty
-    if (!this.value.trim()) {
+    if (!value.trim()) {
       formGroup.classList.add("required");
       errorDiv.style.display = "none";
-    }
-    // Check if the input is less than 3 digits
-    else if (this.value.trim().length < 5) {
-      formGroup.classList.add("zip");
-      errorDiv.style.display = "block";
     } else {
-      formGroup.classList.remove("required");
-      formGroup.classList.remove("zip");
-      errorDiv.style.display = "none";
+      if (country === "USA" && !/^\d{5}$/.test(value)) {
+        // Invalid USA ZIP code (must be 5 digits)
+        formGroup.classList.add("zip");
+        errorDiv.style.display = "block";
+        errorDiv.textContent = "Invalid ZIP Code. Must be 5 digits.";
+      } else if (country === "Canada" && !/^[A-Z]\d[A-Z] \d[A-Z]\d$/.test(this.value)) {
+        // Invalid Canadian Postal Code (A1A 1A1 format)
+        formGroup.classList.add("zip");
+        errorDiv.style.display = "block";
+        errorDiv.textContent = "Invalid Postal Code. Format: A1A 1A1.";
+      } else {
+        // Clear error if valid
+        formGroup.classList.remove("required");
+        formGroup.classList.remove("zip");
+        errorDiv.style.display = "none";
+      }
     }
   });
 });
